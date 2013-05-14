@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Nepali Calender</title>
+  <title>Nepali Calendar</title>
   
   <!-- css links --> 
   <link rel="stylesheet" type="text/css" href="css/foundation.css" />
@@ -17,16 +17,24 @@
 
 <body>
 
-</div>
+<div id="npcalendar">
 <div class="row">
   <div class="small-9 small-centered columns">
+
+    <script type="text/javascript">
+      np_date = $('#nepdate :selected').index();
+      np_month = $('#nepmonth :selected').index();
+      np_year = $('#nepyear :selected').index();
+    </script>
 
     <!-- month row -->
     <div class="row">
       <ul class="day-container small-block-grid-7">
-      <div class="row">
-        <div class="small-3 columns top-date1">Bhadra 2068</div>
-        <div class="small-3 push-1 columns top-date2">Bhadrasdaa 2068</div>
+      <div class="month-wrapper row">
+        <script type="text/javascript">
+        document.write('<div class="small-3 columns top-date1">' +  nepMonth[1] + ' ' + nepDigit[2]+ nepDigit[0] + nepDigit[7] +  nepDigit[0] + '</div>');
+        document.write('<div class="small-3 push-1 columns top-date2">' + nepengMonth[1] + ' 2013</div>');
+        </script>
       </div>
         <li>
           <div class="row">
@@ -88,22 +96,25 @@
     </div>
   </div>
 </div>
-
-
+</div>
 <!-- end of month row -->
 
 <script type="text/javascript">
-  
+
   var main = new Object();
-  main = neptoeng.DateConversion(1,1,2070);
+
+  if ( np_year == -1 || np_month == -1 || np_date == -1 || np_year == 1 || np_month == 1 || np_date == 1) 
+    main = neptoeng.DateConversion(1,1,2070);
+  else 
+    main = neptoeng.DateConversion(np_date, np_month, np_year);
 
   var month = parseInt(main.getMonth(), 10);
   var year = parseInt(main.getYear(), 10);
   var totaldays = parseInt(main.getTotalDays(), 10);
   var day = 1;
   var date = parseInt(main.getDayOW(), 10);
-
   var ft = 0;
+  
   if (date != 0 && totaldays != 0 && month != 0) {
     for (var i = 1; i <= 6; i++) {
       for (var j = 1; j <= 7; ) {
@@ -160,6 +171,7 @@
   } 
   document.write('</ul>');
   document.write('</div>');
+
 </script>
 
 
@@ -225,6 +237,7 @@
               <script type="text/javascript">
                 for ( var i = 1; i <= 31; i++) 
                   document.write("<option id='" + i + "'>" + i + "</option>");
+
               </script>
             </select>
             <a href="#" id ="adtobs" class="tiny button">Convert</a>
@@ -234,9 +247,8 @@
     </form>
   </div>
 </div>
-
-  </div>
 </div>
+
 
 <!-- Check for Zepto support, load jQuery if necessary -->
 <script>

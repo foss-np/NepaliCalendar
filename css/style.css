@@ -16,12 +16,17 @@ form.custom .custom.dropdown
 
 .top-date1 
 {
+	font-size: 18px;
 	text-align: left;
+	margin-bottom: 15px;
 }
 
 .top-date2
 {
+	font-size: 18px;
 	text-align: right;
+	margin-bottom: 15px;
+
 }
 
 .day-label 
@@ -35,7 +40,6 @@ form.custom .custom.dropdown
 	margin: 0px;
 	padding: 0px;
 	color: #000;
-
 }
 
 ul.day-label-top li
