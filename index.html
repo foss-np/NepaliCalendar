@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Nepali Calender</title>
+  
+  <!-- css links --> 
+  <link rel="stylesheet" type="text/css" href="css/foundation.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+    
+  <!-- js links -->
+  <script src="js/neptoeng.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/script.js"></script>
+
+</head>
+
+<body>
+
+</div>
+<div class="row">
+  <div class="small-9 small-centered columns">
+
+    <!-- month row -->
+    <div class="row">
+      <ul class="day-container small-block-grid-7">
+      <div class="row">
+        <div class="small-3 columns top-date1">Bhadra 2068</div>
+        <div class="small-3 push-1 columns top-date2">Bhadrasdaa 2068</div>
+      </div>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Sunday</span>
+          </div>
+          <div class="row">
+            <span class="eng-month small-12 columns">आइतबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Monday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">सोमबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Tuesday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">मँगलबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Wednesday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">बुधबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Thursday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">बिहीबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Friday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">शुक्रबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Saturday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">शनिबार</span>
+          </div>
+        </li>                 
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- end of month row -->
+
+<script type="text/javascript">
+  
+  
+  var main = new Object();
+  main = neptoeng.DateConversion(1,9,2046);
+
+  var month = parseInt(main.getMonth(), 10);
+  var year = parseInt(main.getYear(), 10);
+  var totaldays = parseInt(main.getTotalDays(), 10);
+  var day = 1;
+  var date = parseInt(main.getDayOW(), 10);
+
+  var ft = 0;
+  if (date != 0 && totaldays != 0 && month != 0) {
+    for (var i = 1; i <= 6; i++) {
+      for (var j = 1; j <= 7; ) {
+          if ( ft == 0 ) {
+              document.write('<div class="row">');
+              document.write('<div class="small-9 small-centered columns">');
+              document.write('<div class="row">');
+              document.write('<ul class="day-label-top small-block-grid-7">');
+
+            for (var k = 1; k < date; k++) {
+              document.write('<li>');
+              document.write('<div class="row">');
+              document.write('<span class="nep-font small-12 columns">&nbsp;</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="eng-font small-12 columns">&nbsp;</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="small-12 columns" id="date-label">&nbsp;</span></div>');
+              document.write('<div id="border-down"></div>');
+              document.write('</li>')
+              j++;
+            }
+            ft = 1;
+        }
+
+        if (day <= totaldays) {
+            if (j % 7 == 0 ){
+              document.write('<li class="holiday">');
+              document.write('<div class="row">');
+              document.write('<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="small-12 columns" id="date-label">एकादशी</span></div>');
+              document.write('<div id="border-down"></div>');
+              document.write('</li>')
+                 day++;
+             } else {
+              document.write('<li>');
+              document.write('<div class="row">');
+              document.write('<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="small-12 columns" id="date-label">एकादशी</span></div>');
+              document.write('<div id="border-down"></div>');
+              document.write('</li>');
+              day++
+
+             }
+          }
+         j++;
+      }
+    }
+  } 
+  document.write('</ul>');
+  document.write('</div>');
+</script>
+
+      <div class="row">
+  <div class="small-5 columns">    
+    <form class="custom">
+      <fieldset>
+        <legend>BS To AD</legend>
+        <div class="row">
+          <div class="small-12 columns">
+            <select id="nep-year" class="medium">
+              <option>Select Year</option>
+            </select>
+            <select id="nep-month" class="medium">
+              <option>Select Month</option>
+            </select>
+            <select id="nep-date" class="medium">
+              <option>Select Date</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="small-5 columns">    
+    <form class="custom">
+      <fieldset>
+        <legend>AD To BS</legend>
+        <div class="row">
+          <div class="small-12 columns">
+            <select id="eng-year" class="medium">
+              <option>Select Year</option>
+            </select>
+            <select id="eng-month" class="medium">
+              <option>Select Month</option>
+            </select>
+            <select id="eng-date" class="medium">
+              <option>Select Date</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+<!-- Check for Zepto support, load jQuery if necessary -->
+<script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  
+  <script src="js/foundation.min.js"></script>
+ <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

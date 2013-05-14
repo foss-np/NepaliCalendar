@@ -1,0 +1,124 @@
+/************ Basic ***********/
+body 
+{
+	color: #515050;
+}
+
+form.custom .custom.dropdown 
+{
+	margin-bottom: 0.5em;
+}
+
+.main-calender 
+{
+
+}
+
+.top-date1 
+{
+	text-align: left;
+}
+
+.top-date2
+{
+	text-align: right;
+}
+
+.day-label 
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.day-container
+{
+	margin: 0px;
+	padding: 0px;
+	color: #000;
+
+}
+
+ul.day-label-top li
+{
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	list-style: none;
+	border-right: 2px solid #8a8384;
+	display: inline;
+}
+
+ #border-down
+ {
+	width: 70%;
+	border-bottom: 2px solid #f51c40;
+	position: absolute;
+	margin:5px 0 0 20px;
+	top: 0;
+	bottom: 0;
+ }
+
+ul.day-container li
+{
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	list-style: none;
+	display: inline;
+	height: 75px;
+}
+
+ul.day-container li .nep-month
+{
+	font-size: 20px;
+	text-align: center;
+}
+
+ul.day-container li .eng-month
+{
+	font-size: 20px;
+	text-align: center;
+}
+
+ul.day-label-top li .nep-font
+{
+	font-size: 40px;
+	text-align: center;
+	height: 85px;
+}
+
+
+ul.day-label-top li .eng-font 
+{
+	margin: -30px -10px 0px;
+	font-size: 12px;
+	text-align: right;
+}
+
+/*
+ul.day-label-top li .date-label 
+{
+	margin: -5px 0px;
+	font-size: 12px;
+	text-align: center;
+}
+*/
+
+#date-label 
+{
+	height: 25px;
+	font-size: 12px;
+	color: red;
+	text-align: center;
+}
+
+/* red color on holiday */
+.holiday
+{
+	color: red;
+}
+
+.borderyes 
+{
+	border: 1px solid #000;
+}
