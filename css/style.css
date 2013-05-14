@@ -118,6 +118,11 @@ ul.day-label-top li .date-label
 	color: red;
 }
 
+#adtobs, #bstoad
+{
+	float: right;
+}
+
 .borderyes 
 {
 	border: 1px solid #000;

@@ -94,9 +94,8 @@
 
 <script type="text/javascript">
   
-  
   var main = new Object();
-  main = neptoeng.DateConversion(1,9,2046);
+  main = neptoeng.DateConversion(1,1,2070);
 
   var month = parseInt(main.getMonth(), 10);
   var year = parseInt(main.getYear(), 10);
@@ -163,6 +162,7 @@
   document.write('</div>');
 </script>
 
+
       <div class="row">
   <div class="small-5 columns">    
     <form class="custom">
@@ -170,15 +170,30 @@
         <legend>BS To AD</legend>
         <div class="row">
           <div class="small-12 columns">
-            <select id="nep-year" class="medium">
+            <select id="nepyear" class="medium">
+              <!-- problem binding 'custom' form id -->
+              <!-- hack -->
               <option>Select Year</option>
+              <script type="text/javascript">
+                for ( var i = 2000; i <= 2090; i++) 
+                  document.write("<option id='" + i + "'>" + i + "</option>");
+              </script>
             </select>
-            <select id="nep-month" class="medium">
+            <select id="nepmonth" class="medium">
               <option>Select Month</option>
+              <script type="text/javascript">
+                for ( var i = 1; i <= 12; i++) 
+                  document.write("<option id='" + i + "'>" + nepMonth[i] + "</option>");
+              </script>
             </select>
-            <select id="nep-date" class="medium">
+            <select id="nepdate" class="medium">
               <option>Select Date</option>
+              <script type="text/javascript">
+                for ( var i = 1; i <= 32; i++) 
+                  document.write("<option id='" + i + "'>" + i + "</option>");
+              </script>
             </select>
+            <a href="#" id ="bstoad" class="tiny button">Convert</a>
           </div>
         </div>
       </fieldset>
@@ -191,15 +206,28 @@
         <legend>AD To BS</legend>
         <div class="row">
           <div class="small-12 columns">
-            <select id="eng-year" class="medium">
+            <select id="engyear" class="medium">
               <option>Select Year</option>
+              <script type="text/javascript">
+                for ( var i = 1943; i <= 2034; i++) 
+                  document.write("<option id='" + i + "'>" + i + "</option>");
+              </script>
             </select>
-            <select id="eng-month" class="medium">
+            <select id="engmonth" class="medium">
               <option>Select Month</option>
+              <script type="text/javascript">
+                for ( var i = 1; i <= 12; i++) 
+                  document.write("<option id='" + i + "'>" + engMonth[i] + "</option>");
+              </script>
             </select>
-            <select id="eng-date" class="medium">
+            <select id="engdate" class="medium">
               <option>Select Date</option>
+              <script type="text/javascript">
+                for ( var i = 1; i <= 31; i++) 
+                  document.write("<option id='" + i + "'>" + i + "</option>");
+              </script>
             </select>
+            <a href="#" id ="adtobs" class="tiny button">Convert</a>
           </div>
         </div>
       </fieldset>
@@ -209,7 +237,6 @@
 
   </div>
 </div>
-
 
 <!-- Check for Zepto support, load jQuery if necessary -->
 <script>
