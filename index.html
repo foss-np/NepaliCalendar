@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html ng-app>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Nepali Calendar</title>
@@ -7,26 +7,19 @@
   <!-- css links --> 
   <link rel="stylesheet" type="text/css" href="css/foundation.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-    
-  <!-- js links -->
-  <script src="js/neptoeng.js"></script>
+  
   <script src="js/vendor/jquery.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/lib/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+
+  <script src="js/lib/neptoeng.js"></script>
 
 </head>
 
 <body>
 
-<div id="npcalendar">
-<div class="row">
-  <div class="small-9 small-centered columns">
-
-    <script type="text/javascript">
-      np_date = $('#nepdate :selected').index();
-      np_month = $('#nepmonth :selected').index();
-      np_year = $('#nepyear :selected').index();
-    </script>
-
+<div ng-controller="nepaliCalendarCtrl">
     <!-- month row -->
     <div class="row">
       <ul class="day-container small-block-grid-7">
@@ -103,10 +96,7 @@
 
   var main = new Object();
 
-  if ( np_year == -1 || np_month == -1 || np_date == -1 || np_year == 1 || np_month == 1 || np_date == 1) 
-    main = neptoeng.DateConversion(1,1,2070);
-  else 
-    main = neptoeng.DateConversion(np_date, np_month, np_year);
+  main = neptoeng.DateConversion(1,1,2070);
 
   var month = parseInt(main.getMonth(), 10);
   var year = parseInt(main.getYear(), 10);
@@ -172,10 +162,11 @@
   document.write('</ul>');
   document.write('</div>');
 
+
 </script>
 
 
-      <div class="row">
+  <div class="row">
   <div class="small-5 columns">    
     <form class="custom">
       <fieldset>
@@ -205,7 +196,7 @@
                   document.write("<option id='" + i + "'>" + i + "</option>");
               </script>
             </select>
-            <a href="#" id ="bstoad" class="tiny button">Convert</a>
+            <a href="#" id ="bstoad" class="tiny button" onclick="">Convert</a>
           </div>
         </div>
       </fieldset>
@@ -240,7 +231,7 @@
 
               </script>
             </select>
-            <a href="#" id ="adtobs" class="tiny button">Convert</a>
+            <a href="#" id ="adtobs" class="tiny button" onclick="">Convert</a>
           </div>
         </div>
       </fieldset>
@@ -249,6 +240,8 @@
 </div>
 </div>
 
+</div>
+<!-- end of ng-controller - Nepali Calendar -->
 
 <!-- Check for Zepto support, load jQuery if necessary -->
 <script>
@@ -256,9 +249,15 @@
   ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
   '.js><\/script>')
   </script>
-  
-  <script src="js/foundation.min.js"></script>
- <script>
+  <script src="js/lib/foundation.min.js"></script>
+
+  <!--
+  <script src="js/filters.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/directive.js"></script>  
+  -->
+
+  <script>
     $(document).foundation();
   </script>
 </body>
