@@ -1,6 +1,7 @@
 
 'use strict';
 
+angular.module('Calendarapp', ['Calendarapp.controllers', 'Calendarapp.filters']);
 
 // map english digit to nepali
 var nepDigit = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९', '१०', '११', '१२', '१३', '१४', '१५', '१६', '१७', '१८', '१९', '२०', '२१', '२२', '२३', '२४', '२५', '२६', '२७', '२८', '२९', '३०', '३१', '३२'];
@@ -19,3 +20,6 @@ function getCorresEngDay(date) {
     return temp.getDate();
 }
 
+function changeTonep(month, year) {
+    return nepMonth[month] + ' ' + nepDigit[year[0]] + nepDigit[year[1]] + nepDigit[year[2]] + nepDigit[year[3]];   
+  }

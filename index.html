@@ -1,0 +1,245 @@
+<!doctype html>
+<html ng-app="Calendarapp">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Nepali Calendar</title>
+  
+  <!-- css links --> 
+  <link rel="stylesheet" type="text/css" href="css/foundation.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/lib/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/lib/neptoeng.js"></script>
+
+</head>
+
+<body>
+
+<div ng-controller="nepaliCalendarCtrl">
+    <!-- month row -->
+    <div class="row">
+      <ul class="day-container small-block-grid-7">
+      <div class="month-wrapper row">
+        <div class="small-3 columns top-date1">{{ nepali_month_year }}</div>
+        <div class="small-3 push-1 columns top-date2">{{english_month_year}}</div>
+        </script>
+      </div>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Sunday</span>
+          </div>
+          <div class="row">
+            <span class="eng-month small-12 columns">आइतबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Monday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">सोमबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Tuesday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">मँगलबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Wednesday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">बुधबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Thursday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">बिहीबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Friday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">शुक्रबार</span>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <span class="nep-month small-12 columns">Saturday</span>
+          </div>
+          <div class="row ">
+            <span class="eng-month small-12 columns">शनिबार</span>
+          </div>
+        </li>                 
+      </ul>
+    </div>
+<!-- end of month row -->
+
+<script type="text/javascript">
+
+  var main = new Object();
+
+  main = neptoeng.DateConversion(1,1,2070);
+
+  var month = parseInt(main.getMonth(), 10);
+  var year = parseInt(main.getYear(), 10);
+  var totaldays = parseInt(main.getTotalDays(), 10);
+  var day = 1;
+  var date = parseInt(main.getDayOW(), 10);
+  var ft = 0;
+  
+  if (date != 0 && totaldays != 0 && month != 0) {
+    for (var i = 1; i <= 6; i++) {
+      for (var j = 1; j <= 7; ) {
+          if ( ft == 0 ) {
+              document.write('<div class="row">');
+              document.write('<div class="small-9 small-centered columns">');
+              document.write('<div class="row">');
+              document.write('<ul class="day-label-top small-block-grid-7">');
+
+            for (var k = 1; k < date; k++) {
+              document.write('<li>');
+              document.write('<div class="row">');
+              document.write('<span class="nep-font small-12 columns">&nbsp;</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="eng-font small-12 columns">&nbsp;</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="small-12 columns" id="date-label">&nbsp;</span></div>');
+              document.write('<div id="border-down"></div>');
+              document.write('</li>')
+              j++;
+            }
+            ft = 1;
+        }
+
+        if (day <= totaldays) {
+            if (j % 7 == 0 ){
+              document.write('<li class="holiday">');
+              document.write('<div class="row">');
+              document.write('<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="small-12 columns" id="date-label">एकादशी</span></div>');
+              document.write('<div id="border-down"></div>');
+              document.write('</li>')
+                 day++;
+             } else {
+              document.write('<li>');
+              document.write('<div class="row">');
+              document.write('<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>');
+              document.write('<div class="row">');
+              document.write('<span class="small-12 columns" id="date-label">एकादशी</span></div>');
+              document.write('<div id="border-down"></div>');
+              document.write('</li>');
+              day++
+
+             }
+          }
+         j++;
+      }
+    }
+  } 
+  document.write('</ul>');
+  document.write('</div>');
+
+
+</script>
+
+{{selectedNepYear}}
+
+
+  <div class="row">
+  <div class="small-5 columns">    
+    <form class="" ng-submit="changetext()">
+      <fieldset>
+        <legend>BS To AD</legend>
+        <div class="row">
+          <div class="small-12 columns">
+
+          <select ng-options="val for val in [2000, 2090] | range" ng-model="selectedNepYear" name="nepyear">
+            <option value="">-- Select Year --</option>
+            </select>   
+            
+          <select ng-options="val for val in [1, 12] | range" ng-model="selectedNepMonth" name="nepmonth">
+            <option value="">-- Select Month --</option>
+            </select>  
+
+          <select ng-options="val for val in [1, 32] | range" ng-model="selectedNepDate" name="nepdate">
+            <option value="">-- Select Date --</option>
+            </select>
+
+            <button type="submit" id ="bstoad" class="tiny button">Convert</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+{{ year }}
+  <div class="small-5 columns">    
+    <form class="">
+      <fieldset>
+        <legend>AD To BS</legend>
+        <div class="row">
+          <div class="small-12 columns">
+
+          <select ng-options="val for val in [1943, 2034] | range" ng-model="selectedEngYear" name="engyear">
+            <option value="">-- Select Year --</option>
+            </select>   
+            
+          <select ng-options="val for val in [1, 12] | range" ng-model="selectedEngMonth" name="engmonth">
+            <option value="">-- Select Month --</option>
+            </select>  
+
+          <select ng-options="val for val in [1, 31] | range" ng-model="selectedEngDate" name="engdate">
+            <option value="">-- Select Date --</option>
+            </select>  
+
+            </select>
+            <a href="#" id ="adtobs" class="tiny button" onclick="">Convert</a>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+
+</div>
+<!-- end of ng-controller - Nepali Calendar -->
+
+<!-- Check for Zepto support, load jQuery if necessary -->
+<script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="js/lib/foundation.min.js"></script>
+
+  <!--
+  <script src="js/filters.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/directive.js"></script>  
+  -->
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
