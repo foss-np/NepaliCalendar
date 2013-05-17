@@ -12,7 +12,6 @@ var engMonth = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'Jul
 
 var nepengMonth = ['', 'Apr-May', 'May-June', 'June-July', 'July-Aug', 'Aug-Sept', 'Sept-Oct', 'Oct-Nov', 'Nov-Dec', 'Dec-Jan', 'Jan-Feb', 'Feb-Mar', 'Mar-Apr', ];
 
-var np_month, np_date, np_year;
 
 function getCorresEngDay(date) {
     var temp = new Object();

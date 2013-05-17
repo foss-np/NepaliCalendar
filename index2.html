@@ -1,5 +1,5 @@
-<!doctype html>
-<html ng-app="Calendarapp">
+<!DOCTYPE HTML>
+<html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Nepali Calendar</title>
@@ -7,25 +7,31 @@
   <!-- css links --> 
   <link rel="stylesheet" type="text/css" href="css/foundation.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/lib/angular/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/lib/neptoeng.js"></script>
+    
+  <!-- js links -->
+
 
 </head>
 
 <body>
 
-<div ng-controller="nepaliCalendarCtrl">
+<div id="npcalendar">
+<div class="row">
+  <div class="small-9 small-centered columns">
+
+    <script type="text/javascript">
+      np_date = $('#nepdate :selected').index();
+      np_month = $('#nepmonth :selected').index();
+      np_year = $('#nepyear :selected').index();
+    </script>
+
     <!-- month row -->
     <div class="row">
       <ul class="day-container small-block-grid-7">
       <div class="month-wrapper row">
-        <div class="small-3 columns top-date1">{{ nepali_month_year }}</div>
-        <div class="small-3 push-1 columns top-date2">{{english_month_year}}</div>
+        <script type="text/javascript">
+        document.write('<div class="small-3 columns top-date1">' +  nepMonth[1] + ' ' + nepDigit[2]+ nepDigit[0] + nepDigit[7] +  nepDigit[0] + '</div>');
+        document.write('<div class="small-3 push-1 columns top-date2">' + nepengMonth[1] + ' 2013</div>');
         </script>
       </div>
         <li>
@@ -86,13 +92,18 @@
         </li>                 
       </ul>
     </div>
+  </div>
+</div>
+</div>
 <!-- end of month row -->
 
 <script type="text/javascript">
-
   var main = new Object();
 
-  main = neptoeng.DateConversion(1,1,2070);
+  if ( np_year == -1 || np_month == -1 || np_date == -1 || np_year == 1 || np_month == 1 || np_date == 1) 
+    main = neptoeng.DateConversion(1,1,2070);
+  else 
+    main = neptoeng.DateConversion(np_date, np_month, np_year);
 
   var month = parseInt(main.getMonth(), 10);
   var year = parseInt(main.getYear(), 10);
@@ -157,70 +168,85 @@
   } 
   document.write('</ul>');
   document.write('</div>');
-
+}
 
 </script>
 
 
   <div class="row">
   <div class="small-5 columns">    
-    <form class="" ng-submit="changetext()">
+    <form class="custom">
       <fieldset>
         <legend>BS To AD</legend>
         <div class="row">
           <div class="small-12 columns">
-
-          <select ng-options="val for val in [2000, 2090] | range" ng-model="selectedNepYear" name="nepyear">
-            <option value="">-- Select Year --</option>
-            </select>   
-            
-          <select ng-options="val for val in [1, 12] | range" ng-model="selectedNepMonth" name="nepmonth">
-            <option value="">-- Select Month --</option>
-            </select>  
-
-          <select ng-options="val for val in [1, 32] | range" ng-model="selectedNepDate" name="nepdate">
-            <option value="">-- Select Date --</option>
+            <select id="nepyear" class="medium">
+              <!-- problem binding 'custom' form id -->
+              <!-- hack -->
+              <option>Select Year</option>
+              <script type="text/javascript">
+                for ( var i = 2000; i <= 2090; i++) 
+                  document.write("<option id='" + i + "'>" + i + "</option>");
+              </script>
             </select>
-
-            <a type="submit" class="tiny button"  ng-click="BStoAD();">Convert</a>
+            <select id="nepmonth" class="medium">
+              <option>Select Month</option>
+              <script type="text/javascript">
+                for ( var i = 1; i <= 12; i++) 
+                  document.write("<option id='" + i + "'>" + nepMonth[i] + "</option>");
+              </script>
+            </select>
+            <select id="nepdate" class="medium">
+              <option>Select Date</option>
+              <script type="text/javascript">
+                for ( var i = 1; i <= 32; i++) 
+                  document.write("<option id='" + i + "'>" + i + "</option>");
+              </script>
+            </select>
+            <a href="#" id ="bstoad" class="tiny button" onclick="GenerateCalender();">Convert</a>
           </div>
         </div>
       </fieldset>
     </form>
   </div>
 
-{{ year }}
   <div class="small-5 columns">    
-    <form class="">
+    <form class="custom">
       <fieldset>
         <legend>AD To BS</legend>
         <div class="row">
           <div class="small-12 columns">
-
-          <select ng-options="val for val in [1943, 2034] | range" ng-model="selectedEngYear" name="engyear">
-            <option value="">-- Select Year --</option>
-            </select>   
-            
-          <select ng-options="val for val in [1, 12] | range" ng-model="selectedEngMonth" name="engmonth">
-            <option value="">-- Select Month --</option>
-            </select>  
-
-          <select ng-options="val for val in [1, 31] | range" ng-model="selectedEngDate" name="engdate">
-            <option value="">-- Select Date --</option>
-            </select>  
-
+            <select id="engyear" class="medium">
+              <option>Select Year</option>
+              <script type="text/javascript">
+                for ( var i = 1943; i <= 2034; i++) 
+                  document.write("<option id='" + i + "'>" + i + "</option>");
+              </script>
             </select>
-            <a href="#" class="tiny button" ng-click="ADtoBS();">Convert</a>
+            <select id="engmonth" class="medium">
+              <option>Select Month</option>
+              <script type="text/javascript">
+                for ( var i = 1; i <= 12; i++) 
+                  document.write("<option id='" + i + "'>" + engMonth[i] + "</option>");
+              </script>
+            </select>
+            <select id="engdate" class="medium">
+              <option>Select Date</option>
+              <script type="text/javascript">
+                for ( var i = 1; i <= 31; i++) 
+                  document.write("<option id='" + i + "'>" + i + "</option>");
+
+              </script>
+            </select>
+            <a href="#" id ="adtobs" class="tiny button" onclick="GenerateCalender();">Convert</a>
           </div>
         </div>
       </fieldset>
     </form>
   </div>
 </div>
-
-
 </div>
-<!-- end of ng-controller - Nepali Calendar -->
+
 
 <!-- Check for Zepto support, load jQuery if necessary -->
 <script>
@@ -229,14 +255,16 @@
   '.js><\/script>')
   </script>
   <script src="js/lib/foundation.min.js"></script>
-
-  <!--
+  <script src="js/lib/neptoeng.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="lib/angular/angular.js" ng:autobind></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/widgets.js"></script>
   <script src="js/directive.js"></script>  
-  -->
-
-  <script>
+ <script>
     $(document).foundation();
   </script>
 </body>
