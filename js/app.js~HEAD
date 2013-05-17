@@ -1,3 +1,7 @@
+
+'use strict';
+
+/*
 // map english digit to nepali
 var nepDigit = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९', '१०', '११', '१२', '१३', '१४', '१५', '१६', '१७', '१८', '१९', '२०', '२१', '२२', '२३', '२४', '२५', '२६', '२७', '२८', '२९', '३०', '३१', '३२'];
 
@@ -9,6 +13,7 @@ var nepengMonth = ['', 'Apr-May', 'May-June', 'June-July', 'July-Aug', 'Aug-Sept
 
 var np_month, np_date, np_year;
 
+/*
 $(document).ready(function() {
     $("#bstoad").click( function() { 
 
@@ -19,14 +24,6 @@ $(document).ready(function() {
   console.log(np_year + ' ' + (np_month-1) + ' ' + (np_date-1)); });
 });
 
-function load() {
-    /*
-    for ( var i = 2000; i <= 2090; i++) {
-        $(".engyear").append("<option id='" + i + "'>" + i + "</option>");
-    }
-    */
-
-}
 
 function getCorresEngDay(date) {
     var temp = new Object();
@@ -34,3 +31,4 @@ function getCorresEngDay(date) {
     return temp.getDate();
 }
 
+*/
