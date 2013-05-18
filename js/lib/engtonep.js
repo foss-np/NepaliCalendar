@@ -163,7 +163,7 @@ var engtonep = {
 	  
 	  var result = this.start_year + "/" + this.start_month + "/" + this.start_date;
 
-	  return result;
+	  return this;
 		
 	},
 
