@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('Calendarapp', ['Calendarapp.controllers', 'Calendarapp.filters']);
+angular.module('Calendarapp', ['Calendarapp.controllers', 'Calendarapp.filters', 'Calendarapp.directives']);
 
 // map english digit to nepali
 var nepDigit = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९', '१०', '११', '१२', '१३', '१४', '१५', '१६', '१७', '१८', '१९', '२०', '२१', '२२', '२३', '२४', '२५', '२६', '२७', '२८', '२९', '३०', '३१', '३२'];
