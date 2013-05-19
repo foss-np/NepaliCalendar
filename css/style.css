@@ -36,11 +36,13 @@ form.custom .custom.dropdown
 	padding: 0px;
 }
 
-.day-container
+.top-container
 {
 	margin: 0px;
 	padding: 0px;
 	color: #000;
+	background: linear-gradient(to bottom, white 0%, rgb(243, 243, 243) 100%) repeat scroll 0% 0% transparent;
+
 }
 
 ul.day-label-top li
@@ -53,50 +55,58 @@ ul.day-label-top li
 	display: inline;
 }
 
- #border-down
+.block 
+{
+	position: relative;
+}
+
+#border-down
  {
-	width: 70%;
+ 	position: absolute;
+	width: 90%;
 	border-bottom: 2px solid #f51c40;
-	position: absolute;
-	margin:5px 0 0 20px;
 	top: 0;
 	bottom: 0;
+	margin-left: 3px;
  }
+
 
 ul.day-container li
 {
 	padding: 0px;
 	margin: 0px;
+	padding-bottom: 10px;
 	position: relative;
 	list-style: none;
 	display: inline;
-	height: 75px;
+	border-right: 2px solid #8a8384;
+	overflow: hidden;
 }
 
 ul.day-container li .nep-month
 {
-	font-size: 20px;
+	font-size: 12px;
 	text-align: center;
 }
 
 ul.day-container li .eng-month
 {
-	font-size: 20px;
+	font-size: 12px;
 	text-align: center;
 }
 
 ul.day-label-top li .nep-font
 {
-	font-size: 40px;
+	font-size: 20px;
 	text-align: center;
-	height: 85px;
+	height: 47px;
 }
 
 
 ul.day-label-top li .eng-font 
 {
-	margin: -30px -10px 0px;
-	font-size: 12px;
+	margin: -23px -10px 0px;
+	font-size: 8px;
 	text-align: right;
 }
 
@@ -111,8 +121,10 @@ ul.day-label-top li .date-label
 
 #date-label 
 {
-	height: 25px;
-	font-size: 12px;
+	margin-top: -5px;
+	padding-bottom: 5px;
+	height: 20px;
+	font-size: 10px;
 	color: red;
 	text-align: center;
 }
