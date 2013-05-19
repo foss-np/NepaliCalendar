@@ -7,7 +7,7 @@
   <!-- css links --> 
   <link rel="stylesheet" type="text/css" href="css/foundation.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  
+
   <script src="js/vendor/jquery.js"></script>
   <script src="js/lib/angular/angular.js"></script>
   <script src="js/app.js"></script>
@@ -16,7 +16,13 @@
   <script src="js/filters.js"></script>
   <script src="js/lib/neptoeng.js"></script>
   <script src="js/lib/engtonep.js"></script>
+  <script src="js/lib/jquery.sb.min.js"></script>
 
+  <script type="text/javascript">
+$(document).ready(function() {
+
+});
+  </script>
 </head>
 
 <body>
@@ -29,7 +35,7 @@
 
   <div class="row">
   <div class="small-5 columns">    
-    <form class="" ng-submit="changetext()">
+    <form ng-submit="changetext()">
       <fieldset>
         <legend>BS To AD</legend>
         <div class="row">
@@ -55,7 +61,7 @@
   </div>
 
   <div class="small-5 columns">    
-    <form class="">
+    <form ng-submit="changetext()">
       <fieldset>
         <legend>AD To BS</legend>
         <div class="row">
@@ -81,9 +87,9 @@
   </div>
 </div>
 
-
 </div>
 <!-- end of ng-controller - Nepali Calendar -->
+
 
 <!-- Check for Zepto support, load jQuery if necessary -->
 <script>
@@ -98,9 +104,6 @@
   <script src="js/widgets.js"></script>
   <script src="js/directive.js"></script>  
   -->
-
-  <script>
-    $(document).foundation();
   </script>
 </body>
 </html>

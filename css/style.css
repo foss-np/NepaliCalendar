@@ -131,3 +131,31 @@ ul.day-label-top li .date-label
 {
 	border: 1px solid #000;
 }
+
+/** custom form **/
+select {
+	display: block;
+	position: relative;
+	top: 2px;
+	height: 2.3125em;
+	padding: 0px;
+	width: 100%;
+	font-size: 0.875em;
+	margin-bottom: 0.5em;
+	direction: ltr;
+	-moz-box-sizing: border-box;
+	font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+	line-height: 2.25em;
+	background: linear-gradient(to bottom, white 0%, rgb(243, 243, 243) 100%) repeat scroll 0% 0% transparent;
+	border: 1px solid rgb(204, 204, 204);
+
+}
+.test {
+
+	
+}
+
+select option {
+	padding: 3px;
+	margin: 2px;
+}
