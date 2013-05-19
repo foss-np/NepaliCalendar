@@ -173,6 +173,10 @@ ul.day-label-top li .date-label
 	border: 1px solid #000;
 }
 
+.this 
+{
+	background-color: #fff714;
+}
 /** select form **/
 select {
 	display: block;

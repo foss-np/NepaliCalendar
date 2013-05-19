@@ -182,15 +182,16 @@ angular.module('Calendarapp.directives', [])
             $scope.convyear = parseInt(main.getYear(), 10);
             var totaldays = parseInt(main.getTotalDays(), 10);
             var day = 1;
-            var dayOW = parseInt(main.getDay(), 10);
-            $scope.convdate = parseInt(main.getDate(), 10);
+            var dayOW = 2;/* parseInt(main.getDay(), 10); */
+            $scope.convdate = 5;/* parseInt(main.getDate(), 10); */
             var ft = 0;   // for initial blank blocks
           console.log($scope.convyear +  ' ' + $scope.convmonth + ' '+ $scope.convdate +  ' ' + dayOW);
 
             $scope.english_month_year = nepengMonth[$scope.convmonth];
             $scope.nepali_month_year = changeTonep($scope.convmonth, String($scope.convyear)); 
 
-            var htmlelem =  '<div class="row">' +
+            var htmlelem =  '<div class="main-wrapper">' +
+                            '<div class="row">' +
                             '<div class="month-wrapper small-12 small-centered columns">' +
                             '<div class="small-5 columns top-date1">' + $scope.nepali_month_year +'</div>' +
                             '<div class="small-4 push-1 columns top-date2">' + $scope.english_month_year +'</div>' +
@@ -206,6 +207,7 @@ angular.module('Calendarapp.directives', [])
                               '<div class="row">' +
                                 '<span class="eng-month small-12 columns">आइ</span>' +
                               '</div>' +
+                              '<div id="top-border-down"></div>' +
                             '</li>' +
                             '<li>' +
                               '<div class="row">' +
@@ -214,6 +216,7 @@ angular.module('Calendarapp.directives', [])
                               '<div class="row">' +
                                 '<span class="eng-month small-12 columns">सोम</span>' +
                              '</div>' +
+                              '<div id="top-border-down"></div>' +
                             '</li>' +
                             '<li>' +
                               '<div class="row">' +
@@ -222,6 +225,7 @@ angular.module('Calendarapp.directives', [])
                               '<div class="row">' +
                                 '<span class="eng-month small-12 columns">मँगल</span>' +
                               '</div>' +
+                              '<div id="top-border-down"></div>' +
                             '</li>' +
                             '<li>' +
                               '<div class="row">' +
@@ -230,6 +234,7 @@ angular.module('Calendarapp.directives', [])
                               '<div class="row ">' +
                                 '<span class="eng-month small-12 columns">बुध</span>' +
                               '</div>' +
+                              '<div id="top-border-down"></div>' +
                             '</li>' +
                             '<li>' +
                               '<div class="row">' +
@@ -238,6 +243,7 @@ angular.module('Calendarapp.directives', [])
                               '<div class="row">' +
                                 '<span class="eng-month small-12 columns">बिही</span>' +
                               '</div>' +
+                              '<div id="top-border-down"></div>' +
                             '</li>' +
                             '<li>' +
                               '<div class="row">' +
@@ -246,6 +252,7 @@ angular.module('Calendarapp.directives', [])
                               '<div class="row">' +
                                 '<span class="eng-month small-12 columns">शुक्र</span>' +
                               '</div>' +
+                              '<div id="top-border-down"></div>' +
                             '</li>' +
                             '<li>' +
                               '<div class="row">' +
@@ -254,6 +261,7 @@ angular.module('Calendarapp.directives', [])
                               '<div class="row">' +
                                 '<span class="eng-month small-12 columns">शनि</span>' +
                               '</div>' +
+                              '<div id="top-border-down"></div>' +
                             '</li> ' +                
                           '</ul>' +
                         '</div>';
@@ -280,26 +288,50 @@ angular.module('Calendarapp.directives', [])
                     }
                     if (day <= totaldays) {
                         if (j % 7 == 0 ) {
-                          htmlelem += '<li class="holiday">' +
-                                      '<div class="row">' +
-                                      '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
-                                      '<div class="row">' +
-                                      '<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>' +
-                                      '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
-                                      '<div id="border-down"></div>' +
-                                      '</li>';
+                          if( day != $scope.convdate ) {
+                            htmlelem += '<li class="holiday">' +
+                                        '<div class="row">' +
+                                        '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
+                                        '<div class="row">' +
+                                        '<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>' +
+                                        '<div class="row">' +
+                                        '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
+                                        '<div id="border-down"></div>' +
+                                        '</li>';
+                          } else {
+                            htmlelem += '<li class="holiday this">' +
+                                        '<div class="row">' +
+                                        '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
+                                        '<div class="row">' +
+                                        '<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>' +
+                                        '<div class="row">' +
+                                        '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
+                                        '<div id="border-down"></div>' +
+                                        '</li>';
+                          }
                           day++;
                         } else {
-                          htmlelem += '<li>' +
-                                      '<div class="row">' +
-                                      '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
-                                      '<div class="row">' +
-                                      '<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>' +
-                                      '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
-                                      '<div id="border-down"></div>' +
-                                      '</li>';
+                          if( day != $scope.convdate ) {
+                            htmlelem += '<li>' +
+                                        '<div class="row">' +
+                                        '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
+                                        '<div class="row">' +
+                                        '<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>' +
+                                        '<div class="row">' +
+                                        '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
+                                        '<div id="border-down"></div>' +
+                                        '</li>';
+                            } else {
+                              htmlelem += '<li class="this">' +
+                                        '<div class="row">' +
+                                        '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
+                                        '<div class="row">' +
+                                        '<span class="eng-font small-12 columns">' + getCorresEngDay(day) + '</span></div>' +
+                                        '<div class="row">' +
+                                        '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
+                                        '<div id="border-down"></div>' +
+                                        '</li>';
+                            }
                           day++;
                         }
                       }
@@ -308,6 +340,7 @@ angular.module('Calendarapp.directives', [])
                   }
                 }
                 htmlelem += '</ul>';
+                htmlelem += '</div>';
                 $element.html(htmlelem);   
           
 
