@@ -5,16 +5,22 @@ body
 	background-color: #f9f9f9;
 }
 
-form.custom .custom.dropdown 
+.main-wrapper
 {
-	margin-bottom: 0.5em;
+	padding: 10px 0 10px 0;
+	border: 4px solid #00416f;
+	border-bottom: 15px solid #00416f;
+	border-top: 10px solid #00416f;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	overflow: hidden;
 }
 
-.main-calender 
+.month-wrapper 
 {
-
+	background-color: :#00416f repeat;
+	color: #00416f;
 }
-
 .top-date1 
 {
 	font-size: 18px;
@@ -51,7 +57,7 @@ ul.day-label-top li
 	margin: 0px;
 	position: relative;
 	list-style: none;
-	border-right: 2px solid #8a8384;
+	border-right: 2px solid #00416f;
 	display: inline;
 }
 
@@ -64,7 +70,17 @@ ul.day-label-top li
  {
  	position: absolute;
 	width: 90%;
-	border-bottom: 2px solid #f51c40;
+	border-bottom: 2px solid #00416f; /* #f51c40 */
+	top: 0;
+	bottom: 0;
+	margin-left: 3px;
+ }
+
+#top-border-down
+ {
+ 	position: absolute;
+	width: 90%;
+	border-bottom: 2px solid #f51c40; /* #f51c40 */
 	top: 0;
 	bottom: 0;
 	margin-left: 3px;
@@ -79,21 +95,31 @@ ul.day-container li
 	position: relative;
 	list-style: none;
 	display: inline;
-	border-right: 2px solid #8a8384;
+	border-right: 2px solid #00416f;
 	overflow: hidden;
 }
+
+/****** MONTHS LABEL ******/
 
 ul.day-container li .nep-month
 {
 	font-size: 12px;
 	text-align: center;
+	color: #00416f;
+
 }
 
 ul.day-container li .eng-month
 {
 	font-size: 12px;
 	text-align: center;
+	color: #00416f;
+
 }
+
+/****** MONTHS LABEL ******/
+
+/****** END FONTS LABEL ******/
 
 ul.day-label-top li .nep-font
 {
@@ -109,6 +135,8 @@ ul.day-label-top li .eng-font
 	font-size: 8px;
 	text-align: right;
 }
+
+/****** END FONTS LABEL ******/
 
 /*
 ul.day-label-top li .date-label 
