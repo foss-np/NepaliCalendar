@@ -7,8 +7,6 @@ angular.module('Calendarapp.controllers',[])
   $scope.ADtoBS_button = 0;
 
   $scope.ADtoBS = function() {
-    $scope.english_month_year = nepengMonth[$scope.selectedEngMonth];
-    $scope.nepali_month_year = changeTonep($scope.selectedEngMonth, String($scope.selectedEngYear));
     $scope.ADtoBS_button = 1;
   };
 

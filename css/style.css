@@ -2,6 +2,7 @@
 body 
 {
 	color: #515050;
+	background-color: #f9f9f9;
 }
 
 form.custom .custom.dropdown 
@@ -132,7 +133,7 @@ ul.day-label-top li .date-label
 	border: 1px solid #000;
 }
 
-/** custom form **/
+/** select form **/
 select {
 	display: block;
 	position: relative;
@@ -149,13 +150,4 @@ select {
 	background: linear-gradient(to bottom, white 0%, rgb(243, 243, 243) 100%) repeat scroll 0% 0% transparent;
 	border: 1px solid rgb(204, 204, 204);
 
-}
-.test {
-
-	
-}
-
-select option {
-	padding: 3px;
-	margin: 2px;
 }

@@ -8,27 +8,29 @@ angular.module('Calendarapp.directives', [])
       link: function($scope, $element, $attrs)
       {
 
+        /*
+
         // check if BS to AD button is pressed
         $scope.$watch('BStoAD_button', function(newval, oldval) { 
 
           // get all variables
-          var selmonth = $scope.selectedNepMonth;
-          var seldate = $scope.selectedNepDate;
-          var selyear = $scope.selectedNepYear;
+          $scope.selmonth = $scope.selectedNepMonth;
+          $scope.seldate = $scope.selectedNepDate;
+          $scope.selyear = $scope.selectedNepYear;
 
           // convert to AD
-          if (typeof selyear === 'undefined' || typeof selmonth  === 'undefined' || typeof selyear  === 'undefined' ) {
-          } else {
-
+          if (typeof $scope.selyear === 'undefined' || typeof $scope.selmonth  === 'undefined' || typeof $scope.selyear  === 'undefined' ) {
+                     
+          } else { 
             var main = new Object();
-            main = neptoeng.DateConversion(seldate,selmonth,selyear);
+            main = neptoeng.DateConversion($scope.seldate,$scope.selmonth,$scope.selyear);
 
             // get AD parameters
-            var month = parseInt(main.getMonth(), 10);
-            var year = parseInt(main.getYear(), 10);
+            $scope.convmonth = parseInt(main.getMonth(), 10);
+            $scope.convyear = parseInt(main.getYear(), 10);
             var totaldays = parseInt(main.getTotalDays(), 10);
             var day = 1;
-            var date = parseInt(main.getDayOW(), 10);
+            $scope.convdate = parseInt(main.getDayOW(), 10);
             var ft = 0;   // for initial blank blocks
             var htmlelem =  '<div class="row">' +
                             '<ul class="day-container small-block-grid-7">' +
@@ -96,7 +98,7 @@ angular.module('Calendarapp.directives', [])
                           '</ul>' +
                         '</div>';
 
-            if (date != 0 && totaldays != 0 && month != 0) {
+            if ($scope.convdate != 0 && totaldays != 0 && $scope.convmonth != 0) {
               for (var i = 1; i <= 6; i++) {
                 for (var j = 1; j <= 7; ) {
                     if ( ft == 0 ) {
@@ -104,7 +106,7 @@ angular.module('Calendarapp.directives', [])
                                 '<div class="small-9 small-centered columns">' +
                                 '<div class="row">' +
                                 '<ul class="day-label-top small-block-grid-7">';
-                      for (var k = 1; k < date; k++) {
+                      for (var k = 1; k < $scope.convdate; k++) {
                         htmlelem += '<li>' + 
                                     '<div class="row">' + 
                                     '<span class="nep-font small-12 columns">&nbsp;</span></div>' +
@@ -155,31 +157,45 @@ angular.module('Calendarapp.directives', [])
           $scope.BStoAD_button = 0;
         }, true);
 
+*/
         // check if BS to AD button is pressed
         $scope.$watch('ADtoBS_button', function(newval, oldval) { 
 
           // get all variables
-          var selmonth = $scope.selectedEngMonth;
-          var seldate = $scope.selectedEngDate;
-          var selyear = $scope.selectedEngYear;
+          $scope.selmonth = $scope.selectedEngMonth;
+          $scope.seldate = $scope.selectedEngDate;
+          $scope.selyear = $scope.selectedEngYear;
 
           // convert to AD
-          if (typeof selyear === 'undefined' || typeof selmonth  === 'undefined' || typeof selyear  === 'undefined' ) {
-          } else {
+          if (typeof $scope.selyear === 'undefined' || typeof $scope.selmonth  === 'undefined' || typeof $scope.selyear  === 'undefined' ) {
+            var today = new Date();
+            /*
+            $scope.selyear = today.getFullYear();
+            $scope.selmonth = today.getMonth()+1;
+            $scope.seldate = today.getDate();
+            */
+            $scope.selyear = 2013;
+            $scope.selmonth = 5;
+            $scope.seldate = 18;
             
-            var temp_main = new Object();
-            temp_main = engtonep.DateConversion(seldate,selmonth,selyear);
-          
-            var main = new Object();
-            main = neptoeng.DateConversion(temp_main.getDate(),temp_main.getMonth() ,temp_main.getYear());
+          }
+          console.log($scope.selyear +  ' ' + $scope.selmonth +  ' '+$scope.seldate);
 
+            var main = new Object();
+            main = engtonep.DateConversion($scope.seldate,$scope.selmonth,$scope.selyear);
             // get AD parameters
-            var month = parseInt(main.getMonth(), 10);
-            var year = parseInt(main.getYear(), 10);
+            $scope.convmonth = parseInt(main.getMonth(), 10);
+            $scope.convyear = parseInt(main.getYear(), 10);
             var totaldays = parseInt(main.getTotalDays(), 10);
             var day = 1;
-            var date = parseInt(main.getDayOW(), 10);
+            var dayOW = parseInt(main.getDay(), 10);
+            $scope.convdate = parseInt(main.getDate(), 10);
             var ft = 0;   // for initial blank blocks
+          console.log($scope.convyear +  ' ' + $scope.convmonth + ' '+ $scope.convdate +  ' ' + dayOW);
+
+            $scope.english_month_year = nepengMonth[$scope.convmonth];
+            $scope.nepali_month_year = changeTonep($scope.convmonth, String($scope.convyear)); 
+
             var htmlelem =  '<div class="row">' +
                             '<ul class="day-container small-block-grid-7">' +
                             '<div class="month-wrapper row">' +
@@ -243,10 +259,9 @@ angular.module('Calendarapp.directives', [])
                                 '<span class="eng-month small-12 columns">शनिबार</span>' +
                               '</div>' +
                             '</li> ' +                
-                          '</ul>' +
-                        '</div>';
+                          '</ul>' ;
 
-            if (date != 0 && totaldays != 0 && month != 0) {
+            if ($scope.convdate != 0 && totaldays != 0 && $scope.convmonth != 0) {
               for (var i = 1; i <= 6; i++) {
                 for (var j = 1; j <= 7; ) {
                     if ( ft == 0 ) {
@@ -254,7 +269,7 @@ angular.module('Calendarapp.directives', [])
                                 '<div class="small-9 small-centered columns">' +
                                 '<div class="row">' +
                                 '<ul class="day-label-top small-block-grid-7">';
-                      for (var k = 1; k < date; k++) {
+                      for (var k = 0; k <= dayOW; k++) {
                         htmlelem += '<li>' + 
                                     '<div class="row">' + 
                                     '<span class="nep-font small-12 columns">&nbsp;</span></div>' +
@@ -300,7 +315,7 @@ angular.module('Calendarapp.directives', [])
                 htmlelem += '</ul>';
                 htmlelem += '</div>';
                 $element.html(htmlelem);   
-          }
+          
 
           $scope.ADtoBS_button = 0;
         }, true);

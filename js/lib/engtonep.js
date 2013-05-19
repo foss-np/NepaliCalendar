@@ -131,8 +131,9 @@ var engtonep = {
 	  var firstDate = new Date(year, month, date);
 	  var secondDate = new Date(this.eng_start_year, this.eng_start_month, this.eng_start_date);
 
-	  new_days = Math.round((firstDate.getTime() - secondDate.getTime())/(oneDay));
-	  
+	  new_days = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+
+	  console.log(new_days);
 	  while ( new_days != 0 ) 
 	  {
 
@@ -161,8 +162,6 @@ var engtonep = {
 		new_days--; // after each loop, reduce day
 	  }
 	  
-	  var result = this.start_year + "/" + this.start_month + "/" + this.start_date;
-
 	  return this;
 		
 	},
@@ -187,6 +186,12 @@ var engtonep = {
 	{
 		return this.day_of_week;
 	},
+
+    getTotalDays : function()  
+    {
+    return this.end_day_of_month;
+    },
+
 }
 
 
