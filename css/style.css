@@ -97,7 +97,7 @@ header h1
 	top:0;
 	left:0;
 	background-color: #c8e8fe;
-	opacity:0.2;
+	opacity:0.1;
 }
 
 .left-navig:hover, .right-navig:hover
@@ -142,6 +142,12 @@ ul.day-label-top li
 	display: inline;
 }
 
+ul.day-label-top li:hover {
+	background-color: rgb(253, 253, 253);
+	opacity: 0.6;
+	cursor: pointer;
+}
+
 .block 
 {
 	position: relative;
@@ -156,6 +162,7 @@ ul.day-label-top li
 	bottom: 0;
 	margin-left: 3px;
  }
+
 
 #top-border-down
  {
@@ -244,11 +251,6 @@ ul.day-label-top li .date-label
 	color: red;
 }
 
-#adtobs, #bstoad
-{
-	float: right;
-}
-
 .borderyes 
 {
 	border: 1px solid #000;
@@ -256,8 +258,9 @@ ul.day-label-top li .date-label
 
 .this 
 {
-	background-color: #fff714;
+	background-color: #ced9e9;
 }
+
 /** select form **/
 select {
 	display: block;
