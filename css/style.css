@@ -23,17 +23,45 @@ body
 }
 .top-date1 
 {
-	font-size: 18px;
+	font-size: 14px;
 	text-align: left;
 	margin-bottom: 15px;
 }
 
 .top-date2
 {
-	font-size: 18px;
+	font-size: 14px;
 	text-align: right;
 	margin-bottom: 15px;
 
+}
+
+
+#left-navig
+{
+	position: absolute;
+	width: 50px;
+	height: 100%;
+	top:0;
+	left:0;
+	background-color: #c8e8fe;
+	opacity:0.1;
+}
+
+#left-navig:hover, #right-navig:hover
+{
+	opacity: 0.4;
+}
+
+#right-navig
+{
+	position: absolute;
+	width: 50px;
+	height: 100%;
+	top:0;
+	right:0;
+	background-color: #c8e8fe;
+	opacity:0.1;
 }
 
 .day-label 

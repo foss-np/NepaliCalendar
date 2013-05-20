@@ -15,9 +15,8 @@ var engtonep = {
   day_of_week : 4,
   end_day_of_month : 0,  
 
-  loadMap : function()
+loadMap : function()
   {
-    this.nepMap = [];
     // load nepali month array
     this.nepMap[2000] = [0, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31 ];
     this.nepMap[2001] = [0, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30 ];
@@ -119,50 +118,51 @@ var engtonep = {
 	DateConversion : function ( date, month, year )
 	{
 
-	  this.loadMap();
-	  this.start_month = this.nep_start_month;
-	  this.start_year = this.nep_start_year;
-	  this.start_date = this.nep_start_date;
-	  var new_days = 0;
+        this.loadMap();
+        this.start_month = this.nep_start_month;
+        this.start_year = this.nep_start_year;
+        this.start_date = this.nep_start_date;
+        var new_days = 0;
 
-	  // count total days in a year
-	  // source: http://stackoverflow.com/questions/2627473/how-to-calculate-the-number-of-days-between-two-dates-using-javascript
-	  var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-	  var firstDate = new Date(year, month, date);
-	  var secondDate = new Date(this.eng_start_year, this.eng_start_month, this.eng_start_date);
+        var days = 1000*60*60*24;
 
-	  new_days = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+        var temp1 = month + '/' + date + '/' + year;
+        var temp2 = this.eng_start_month+ '/' + this.eng_start_date + '/' + this.eng_start_year;
 
-	  console.log(new_days);
-	  while ( new_days != 0 ) 
-	  {
+        var foo_date1 = getDateFromFormat(temp1, "M/d/y");
+        var foo_date2 = getDateFromFormat(temp2, "M/d/y");
 
-		this.end_day_of_month = this.nepMap[this.start_year][this.start_month];
+        var new_days = Math.round((foo_date1 - foo_date2)/days);
 
-		this.day_of_week++;
-		this.start_date++;
+        while ( new_days != 0 ) 
+        {
 
-		if ( this.start_date > this.end_day_of_month ) 
-		{
-		  this.start_month++;
+        this.end_day_of_month = this.nepMap[this.start_year][this.start_month];
 
-		  this.start_date = 1;
+        this.day_of_week++;
+        this.start_date++;
 
-		  if ( this.start_month > 12 )
-		  {
-				this.start_year++;
-				this.start_month = 1;
-		  }
-		}
+        if ( this.start_date > this.end_day_of_month ) 
+        {
+          this.start_month++;
 
-		if ( this.day_of_week > 7 )
-		{
-			  this.day_of_week = 1;
-		}
-		new_days--; // after each loop, reduce day
-	  }
-	  
-	  return this;
+          this.start_date = 1;
+
+          if ( this.start_month > 12 )
+          {
+        		this.start_year++;
+        		this.start_month = 1;
+          }
+        }
+
+        if ( this.day_of_week > 7 )
+        {
+        	  this.day_of_week = 1;
+        }
+        new_days--; // after each loop, reduce day
+        }
+
+        return this;
 		
 	},
 

@@ -14,82 +14,23 @@
   <script src="js/controllers.js"></script>
   <script src="js/directives.js"></script>
   <script src="js/filters.js"></script>
+  <script src="js/lib/date.js"></script>
   <script src="js/lib/neptoeng.js"></script>
   <script src="js/lib/engtonep.js"></script>
   <script src="js/lib/jquery.sb.min.js"></script>
 
-  <script type="text/javascript">
-$(document).ready(function() {
-
-});
-  </script>
 </head>
 
 <body>
 
 <div ng-controller="nepaliCalendarCtrl">
-
-<!-- calendar -->
-<nep-calendar></nep-calendar>
-
-
-<!-- date converter divs 
-  <div class="row">
-  <div class="small-5 columns">    
-    <form ng-submit="changetext()">
-      <fieldset>
-        <legend>BS To AD</legend>
-        <div class="row">
-          <div class="small-12 columns">
-
-          <select ng-options="val for val in [2000, 2090] | range" ng-model="selectedNepYear" name="nepyear">
-            <option value="">-- Select Year --</option>
-            </select>   
-            
-          <select ng-options="val for val in [1, 12] | range" ng-model="selectedNepMonth" name="nepmonth">
-            <option value="">-- Select Month --</option>
-            </select>  
-
-          <select ng-options="val for val in [1, 32] | range" ng-model="selectedNepDate" name="nepdate">
-            <option value="">-- Select Date --</option>
-            </select>
-
-            <a type="submit" class="tiny button"  ng-click="BStoAD();">Convert</a>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-  </div>
-
-  <div class="small-5 columns">    
-    <form ng-submit="changetext()">
-      <fieldset>
-        <legend>AD To BS</legend>
-        <div class="row">
-          <div class="small-12 columns">
-
-          <select ng-options="val for val in [1943, 2034] | range" ng-model="selectedEngYear" name="engyear">
-            <option value="">-- Select Year --</option>
-            </select>   
-            
-          <select ng-options="val for val in [1, 12] | range" ng-model="selectedEngMonth" name="engmonth">
-            <option value="">-- Select Month --</option>
-            </select>  
-
-          <select ng-options="val for val in [1, 31] | range" ng-model="selectedEngDate" name="engdate">
-            <option value="">-- Select Date --</option>
-            </select>  
-
-            <a href="#" class="tiny button" ng-click="ADtoBS();">Convert</a>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-  </div>
-</div>
+  <div id="left-navig" ng-click="decMonth();"></div>
+  <div id="right-navig" ng-click="incMonth();"></div>
+  
+  <!-- calendar -->
+  <nep-calendar></nep-calendar>
 
 </div>
--->
 <!-- end of ng-controller - Nepali Calendar -->
 
 
@@ -101,11 +42,6 @@ $(document).ready(function() {
   </script>
   <script src="js/lib/foundation.min.js"></script>
 
-  <!--
-  <script src="js/filters.js"></script>
-  <script src="js/widgets.js"></script>
-  <script src="js/directive.js"></script>  
-  -->
-  </script>
+</script>
 </body>
 </html>

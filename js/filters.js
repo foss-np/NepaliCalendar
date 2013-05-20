@@ -1,5 +1,6 @@
 'use strict'
 
+// filters to ger range in angular <select> buttons
 angular.module('Calendarapp.filters', [])
   .filter('range', function() {
     return function(input) {

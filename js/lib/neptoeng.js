@@ -30,7 +30,6 @@ var neptoeng = {
 
   loadMap : function()
   {
-    this.nepMap = [];
     // load nepali month array
     this.nepMap[2000] = [0, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31 ];
     this.nepMap[2001] = [0, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30 ];
@@ -153,7 +152,6 @@ var neptoeng = {
 
     // count total days user date
     new_days += ( date - this.nep_start_date );
-
 
     while ( new_days != 0 ) 
     {
