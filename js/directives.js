@@ -39,13 +39,13 @@ angular.module('Calendarapp.directives', [])
 
           // html that wraps top containers - name of months and days block
           var htmlelem =  '<div class="main-wrapper">' +
-                          '<div class="row">' +
-                          '<div class="month-wrapper small-12 small-centered columns">' +
+                          '<div class="row month-wrapper">' +
+                          '<div class="small-12 small-centered columns">' +
                           '<div class="small-5 columns top-date1">' + $scope.nepali_month_year +'</div>' +
                           '<div class="small-5 push-1 columns top-date2">' + $scope.english_month_year +'</div>' +
                         '</div>' +
                         '</div>' +
-                        '<div class="row">' +
+                        '<div class="row calendar-wrapper">' +
                         '<ul class="day-container small-block-grid-7 small-12 small-centered columns">' +
                          ' <li>' +
                             '<div class="row month-container">' +

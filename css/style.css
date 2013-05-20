@@ -1,31 +1,83 @@
 /************ Basic ***********/
 body 
 {
+	margin: 0px;
+	padding: 0px;
 	color: #515050;
 	background-color: #f9f9f9;
 }
 
+/***** WRAPPERS ****/
+
 .main-wrapper
 {
-	padding: 10px 0 10px 0;
+	padding: 0px 0 10px 0;
+	/*
 	border: 4px solid #00416f;
 	border-bottom: 15px solid #00416f;
 	border-top: 10px solid #00416f;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
+	*/
 	overflow: hidden;
 }
 
 .month-wrapper 
 {
-	background-color: :#00416f repeat;
+	padding-top: 5px;
 	color: #00416f;
+	background: -moz-linear-gradient(center top , rgb(253, 253, 253), rgb(238, 238, 238)) repeat scroll 0% 0% rgb(238, 238, 238);
+	text-shadow: 0px 1px 1px rgb(62, 103, 144);
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	height: 25px;	
 }
+
+.calendar-wrapper
+{
+}
+
+header
+{
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #000;
+	border-bottom: 0px;
+	background: linear-gradient(rgb(111, 172, 213), rgb(73, 123, 174)) repeat scroll 0% 0% rgb(94, 135, 176);
+	text-shadow: 0px 1px 1px rgb(62, 103, 144);
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+
+	/*
+	background: -moz-linear-gradient(center top , rgb(253, 253, 253), rgb(238, 238, 238)) repeat scroll 0% 0% rgb(238, 238, 238);
+	*/
+	height: 40px;
+}
+
+header h1 
+{
+	margin: 0px 0 0 15px;
+	padding: 2px 0 0 0;
+	color: #fff;
+	font-size: 25px;
+}
+
+.main-wrapper 
+{
+	border: 1px solid #000;
+	border-top: 0px;
+	border-bottom: 0px;
+	background: -moz-linear-gradient(center top , rgb(253, 253, 253), rgb(238, 238, 238)) repeat scroll 0% 0% rgb(238, 238, 238);
+}
+
 .top-date1 
 {
 	font-size: 14px;
 	text-align: left;
 	margin-bottom: 15px;
+	text-shadow: 0px 1px 1px #8fbbfd;
 }
 
 .top-date2
@@ -33,11 +85,11 @@ body
 	font-size: 14px;
 	text-align: right;
 	margin-bottom: 15px;
-
+	text-shadow: 0px 1px 1px #8fbbfd;
 }
 
 
-#left-navig
+.left-navig
 {
 	position: absolute;
 	width: 50px;
@@ -45,15 +97,16 @@ body
 	top:0;
 	left:0;
 	background-color: #c8e8fe;
-	opacity:0.1;
+	opacity:0.2;
 }
 
-#left-navig:hover, #right-navig:hover
+.left-navig:hover, .right-navig:hover
 {
 	opacity: 0.4;
+	cursor: pointer;
 }
 
-#right-navig
+.right-navig
 {
 	position: absolute;
 	width: 50px;
