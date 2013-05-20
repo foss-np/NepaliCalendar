@@ -47,7 +47,7 @@ angular.module('Calendarapp.directives', [])
                         '</div>' +
                         '<div class="row calendar-wrapper">' +
                         '<ul class="day-container small-block-grid-7 small-12 small-centered columns">' +
-                         ' <li>' +
+                         ' <li class="leftborder">' +
                             '<div class="row month-container">' +
                               '<span class="nep-month small-12 columns">Sun</span>' +
                            ' </div>' +
@@ -122,8 +122,12 @@ angular.module('Calendarapp.directives', [])
                     htmlelem += '<div class="row">' +  
                               '<ul class="day-label-top small-block-grid-7 small-12 small-centered columns">';
                     for (var k = 1; k < dayOW; k++) {
-                      htmlelem += '<li class="block">' + 
-                                  '<div class="row">' + 
+                      if ( k == 1 )
+                        htmlelem += '<li class="block leftborder">';
+                      else
+                        htmlelem += '<li class="block">';
+
+                        htmlelem += '<div class="row">' + 
                                   '<span class="nep-font small-12 columns">&nbsp;</span></div>' +
                                   '<div class="row">' +
                                   '<span class="eng-font small-12 columns">&nbsp;</span></div>' +
@@ -137,9 +141,12 @@ angular.module('Calendarapp.directives', [])
                   }
                   if (day <= totaldays) {
                       if (j % 7 == 0 ) {
-                        if( day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear) {
-                          htmlelem += '<li class="holiday this">' +
-                                      '<div class="row">' +
+                        if( day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear) 
+                          htmlelem += '<li class="holiday this">';
+                        else
+                          htmlelem += '<li class="holiday">';
+
+                          htmlelem += '<div class="row">' +
                                       '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
                                       '<div class="row">' +
                                       '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
@@ -147,22 +154,16 @@ angular.module('Calendarapp.directives', [])
                                       '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
                                       '<div id="border-down"></div>' +
                                       '</li>';
-                        } else {
-                          htmlelem += '<li class="holiday">' +
-                                      '<div class="row">' +
-                                      '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
-                                      '<div class="row">' +
-                                      '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
-                                      '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
-                                      '<div id="border-down"></div>' +
-                                      '</li>';
-                        }
                         day++;
                       } else {
-                        if( day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear) {
-                          htmlelem += '<li class="this">' +
-                                      '<div class="row">' +
+                        if( day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear && ([8,15].indexOf(j) > 0) ) 
+                          htmlelem += '<li class="this leftborder">';
+                        else if (j == 1)
+                            htmlelem += '<li class="leftborder">';
+                        else
+                            htmlelem += '<li>';
+
+                            htmlelem += '<div class="row">' +
                                       '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
                                       '<div class="row">' +
                                       '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
@@ -170,17 +171,6 @@ angular.module('Calendarapp.directives', [])
                                       '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
                                       '<div id="border-down"></div>' +
                                       '</li>';
-                          } else {
-                            htmlelem += '<li>' +
-                                      '<div class="row">' +
-                                      '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
-                                      '<div class="row">' +
-                                      '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
-                                      '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
-                                      '<div id="border-down"></div>' +
-                                      '</li>';
-                          }
                         day++;
                       }
                     }

@@ -142,6 +142,11 @@ ul.day-label-top li
 	display: inline;
 }
 
+.leftborder
+{
+	border-left: 2px solid #00416f;
+}
+
 ul.day-label-top li:hover {
 	background-color: rgb(253, 253, 253);
 	opacity: 0.6;
@@ -157,7 +162,7 @@ ul.day-label-top li:hover {
  {
  	position: absolute;
 	width: 90%;
-	border-bottom: 2px solid rgb(111, 172, 213); /* #00416f #f51c40 */
+	border-bottom: 2px solid #5f92b4; /* #00416f #f51c40 */
 	top: 0;
 	bottom: 0;
 	margin-left: 3px;
