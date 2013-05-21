@@ -39,10 +39,10 @@ angular.module('Calendarapp.directives', [])
 
           // html that wraps top containers - name of months and days block
           var htmlelem =  '<div class="main-wrapper">' +
-                          '<div class="row month-wrapper">' +
-                          '<div class="small-12 small-centered columns">' +
+                          '<div class="row">' +
+                          '<div class="small-12  month-wrapper small-centered columns">' +
                           '<div class="small-5 columns top-date1">' + $scope.nepali_month_year +'</div>' +
-                          '<div class="small-5 push-1 columns top-date2">' + $scope.english_month_year +'</div>' +
+                          '<div class="small-6 push-1 columns top-date2">' + $scope.english_month_year +'</div>' +
                         '</div>' +
                         '</div>' +
                         '<div class="row calendar-wrapper">' +
@@ -156,8 +156,10 @@ angular.module('Calendarapp.directives', [])
                                       '</li>';
                         day++;
                       } else {
-                        if( day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear && ([8,15].indexOf(j) > 0) ) 
+                        if (day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear && (j == 1)) 
                           htmlelem += '<li class="this leftborder">';
+                        else if (day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear) 
+                          htmlelem += '<li class="this">';
                         else if (j == 1)
                             htmlelem += '<li class="leftborder">';
                         else
@@ -179,7 +181,11 @@ angular.module('Calendarapp.directives', [])
                 }
               }
               htmlelem += '</ul>';
-              htmlelem += '</div>';
+              htmlelem += '<div class="footer">'+
+                            'Copyright blah blah blah'+
+                            '</div>';
+                                          htmlelem += '</div>';
+
               $element.html(htmlelem);   
         
           // set navig_button to default - to trigger when this is pressed again

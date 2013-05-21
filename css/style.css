@@ -4,7 +4,7 @@ body
 	margin: 0px;
 	padding: 0px;
 	color: #515050;
-	background-color: #f9f9f9;
+	background-color: #eae9e9;
 }
 
 /***** WRAPPERS ****/
@@ -24,6 +24,7 @@ body
 
 .month-wrapper 
 {
+	padding: 0px;
 	padding-top: 5px;
 	color: #00416f;
 	background: -moz-linear-gradient(center top , rgb(253, 253, 253), rgb(238, 238, 238)) repeat scroll 0% 0% rgb(238, 238, 238);
@@ -36,6 +37,7 @@ body
 
 .calendar-wrapper
 {
+	margin-top: 5px;
 }
 
 header
@@ -66,10 +68,11 @@ header h1
 
 .main-wrapper 
 {
+	margin: 0px;
+	padding: 0px;
 	border: 1px solid #000;
 	border-top: 0px;
 	border-bottom: 0px;
-	background: -moz-linear-gradient(center top , rgb(253, 253, 253), rgb(238, 238, 238)) repeat scroll 0% 0% rgb(238, 238, 238);
 }
 
 .top-date1 
@@ -77,7 +80,9 @@ header h1
 	font-size: 14px;
 	text-align: left;
 	margin-bottom: 15px;
-	text-shadow: 0px 1px 1px #8fbbfd;
+	text-shadow: 1px 0px 0px #e8e8e8;
+	padding-top: 1px;
+	margin-left: -15px;
 }
 
 .top-date2
@@ -85,7 +90,9 @@ header h1
 	font-size: 14px;
 	text-align: right;
 	margin-bottom: 15px;
-	text-shadow: 0px 1px 1px #8fbbfd;
+	text-shadow: 1px 0px 0px #e8e8e8;
+	padding-top: 1px;
+	margin-right: -17px;
 }
 
 
@@ -267,7 +274,8 @@ ul.day-label-top li .date-label
 }
 
 /** select form **/
-select {
+select 
+{
 	display: block;
 	position: relative;
 	top: 2px;
@@ -282,5 +290,18 @@ select {
 	line-height: 2.25em;
 	background: linear-gradient(to bottom, white 0%, rgb(243, 243, 243) 100%) repeat scroll 0% 0% transparent;
 	border: 1px solid rgb(204, 204, 204);
+}
 
+.footer 
+{
+	width:90%;
+	margin: 15px auto;
+	padding-top: 6px;
+	border-top: 2px solid #5f92b4;
+	text-align: center;
+	font-weight: 400;
+	font-size: 10px;
+	font-family: "sans-serif";
+	color: #00416f;
+	-moz-box-shadow:0 10px 5px #888888;
 }

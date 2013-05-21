@@ -1,0 +1,13 @@
+{ 
+	"name": "Nepali Patro (Calendar)", 
+	"description": "Nepali Calendar with AD to BS Convertor", 
+	"launch_path": "/index.html", 
+	"developer": { 
+		"name": "Prashish Rajbhandari", 
+		"url": "http://prashishrajbhandari.com.np" 
+	}, 
+	"icons": { 
+		"16": "/img/icon16.png"
+	}, 
+	"default_locale": "en" 
+}
