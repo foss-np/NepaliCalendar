@@ -7,7 +7,6 @@ angular.module('Calendarapp.controllers',[])
 
   if (cal_setup == null) 
     initialSetup();
-  
   else if ( cal_setup < 2 )
     initialSetup();
   

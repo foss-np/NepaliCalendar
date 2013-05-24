@@ -172,7 +172,7 @@ angular.module('Calendarapp.directives', [])
                                       '<div class="row">' +
                                       '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
                                       '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">'+ '1'+'</span></div>' +
+                                      '<span class="small-12 columns" id="date-label">'+ findEvent(1)+'</span></div>' +
                                       '<div id="border-down"></div>' +
                                       '</li>';
                         day++;

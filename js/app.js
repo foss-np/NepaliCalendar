@@ -26,41 +26,17 @@ var database;
 function initialSetup() {
   console.log('in');
 
-  var request = indexedDB.open("nepali_calendar", 1);
-  
-  request.onerror = function(event) {
-    console.log(event.target.errorCode);
-  };
-
-  request.onsuccess = function(event) {
-      database = request.result;
-      console.log('database opened successfully.');
-  };
-
-  request.onupgradeneeded = function(event) {
-      var db = event.target.result;
-      var objectStore = db.createObjectStore("calendar_events", { keyPath: "date"});
-      console.log('helo');
-  };
+  $.getScript("js/init_data.js")
+  .done(function() {
+    console.log('s')
+  })
+  .fail(function() {
+    console.log('fail');
+  });
 
 }
 
-function findEvent() {
-  var request = indexedDB.open("nepali_calendar", 1);
-
-  request.onsuccess = function(event) {
-    database = event.target.result;
-    var transaction = database.transaction(["calendar_events"]);
-    var objectStore = transaction.objectStore("calendar_events");
-    var request = objectStore.get(2000101);
-    request.onsuccess = function(event) {
-      database.close();
-      console.log('found' + event.target.result.date + event.target.result.event);
-    };
-    request.onerror = function(e) {
-      console.log("Error Getting: ", e);
-    };
-  }
+function findEvent(id) {
 
 }
 
