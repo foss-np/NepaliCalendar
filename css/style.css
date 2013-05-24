@@ -100,11 +100,12 @@ header h1
 {
 	position: absolute;
 	width: 50px;
-	height: 100%;
-	top:0;
+	height: 90%;
+	bottom:0;
 	left:0;
 	background-color: #c8e8fe;
 	opacity:0.1;
+	z-index: 1;
 }
 
 .left-navig:hover, .right-navig:hover
@@ -117,11 +118,12 @@ header h1
 {
 	position: absolute;
 	width: 50px;
-	height: 100%;
-	top:0;
+	height: 90%;
+	bottom: 0;
 	right:0;
 	background-color: #c8e8fe;
 	opacity:0.1;
+	z-index: 1;
 }
 
 .day-label 
