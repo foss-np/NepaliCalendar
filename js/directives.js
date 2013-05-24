@@ -7,9 +7,11 @@ angular.module('Calendarapp.directives', [])
       replace: true,
       link: function($scope, $element, $attrs)
       {
+        findEvent();
         // check if navig button is pressed
         $scope.$watch('navig_button', function(newval, oldval) { 
 
+          var temp = 1;
           // get current date if no date is defined
           if (typeof $scope.selyear === 'undefined' || typeof $scope.selmonth  === 'undefined' || typeof $scope.selyear  === 'undefined' )
             $scope.findTodayDate();
@@ -151,7 +153,7 @@ angular.module('Calendarapp.directives', [])
                                       '<div class="row">' +
                                       '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
                                       '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
+                                      '<span class="small-12 columns" id="date-label">'+ '1' +'</span></div>' +
                                       '<div id="border-down"></div>' +
                                       '</li>';
                         day++;
@@ -170,7 +172,7 @@ angular.module('Calendarapp.directives', [])
                                       '<div class="row">' +
                                       '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
                                       '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">एकादशी</span></div>' +
+                                      '<span class="small-12 columns" id="date-label">'+ '1'+'</span></div>' +
                                       '<div id="border-down"></div>' +
                                       '</li>';
                         day++;

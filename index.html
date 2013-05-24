@@ -20,6 +20,8 @@
 <script src="js/lib/date.js"></script>
 <script src="js/lib/neptoeng.js"></script>
 <script src="js/lib/engtonep.js"></script>
+<script src="js/lib/indexedDB.js"></script>
+
 
 </head>
 
@@ -33,7 +35,6 @@
 
   <div class="left-navig" ng-click="decMonth();"></div>
   <div class="right-navig" ng-click="incMonth();"></div>
-
   <!-- calendar -->
 <nep-calendar></nep-calendar>
 
@@ -41,8 +42,10 @@
 </div>
 <!-- end of ng-controller - Nepali Calendar -->
 
+<a href="#popupBasic" data-rel="popup">Open Popup</a>
 
-
-
-</body>
+<div data-role="popup" id="popupBasic">
+  <p>This is a completely basic popup, no options set.<p>
+</div>
+ <a href="index.html" data-role="button" data-icon="delete">Delete</a> </body>
 </html>
