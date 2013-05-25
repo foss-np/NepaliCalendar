@@ -21,7 +21,10 @@ function changeTonep(month, year) {
     return nepMonth[month] + ' ' + nepDigit[year[0]] + nepDigit[year[1]] + nepDigit[year[2]] + nepDigit[year[3]];   
 }
 
-var database;
+// returns two digit 
+function n(n){
+    return n > 9 ? "" + n: "0" + n;
+}
 
 function initialSetup() {
   console.log('in');

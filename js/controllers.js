@@ -5,11 +5,8 @@ angular.module('Calendarapp.controllers',[])
   
   var cal_setup = localStorage.getItem('cal_setup');
 
-  if (cal_setup == null) 
+  if (cal_setup == null || cal_setup == 0)  
     initialSetup();
-  else if ( cal_setup < 2 )
-    initialSetup();
-  
 
   // initial button status     
   $scope.navig_button = 0;

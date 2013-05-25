@@ -37,8 +37,8 @@ var events = [
 { 'date' : '04022070' , 'event' : ''},
 { 'date' : '05022070' , 'event' : ''},
 { 'date' : '06022070' , 'event' : ''},
-{ 'date' : '07022070' , 'event' : ''},
-{ 'date' : '08022070' , 'event' : ''},
+{ 'date' : '07022070' , 'event' : 'test'},
+{ 'date' : '08022070' , 'event' : 'test'},
 { 'date' : '09022070' , 'event' : ''},
 { 'date' : '10022070' , 'event' : ''},
 { 'date' : '11022070' , 'event' : ''},
@@ -390,8 +390,11 @@ function n(n){
 }
 
 for (var i = 0; i < events.length; i++) {
+  localStorage.setItem(events[i].date, events[i].event);
   console.log(events[i].date + events[i].event);
 }
+
+localStorage.setItem('cal_setup', 1);
 
 /* Generate list
 for(var i = 01; i <= 12; i++) {
