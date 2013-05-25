@@ -64,6 +64,7 @@ header h1
 	padding: 2px 0 0 0;
 	color: #fff;
 	font-size: 25px;
+	float: left;
 }
 
 .main-wrapper 
@@ -275,6 +276,7 @@ ul.day-label-top li .date-label
 	background-color: #ced9e9;
 }
 
+
 /** select form **/
 select 
 {
@@ -306,4 +308,47 @@ select
 	font-family: "sans-serif";
 	color: #00416f;
 	-moz-box-shadow:0 10px 5px #888888;
+}
+
+#positionWindow
+{
+	width: 250px;
+}
+
+#select-choice-month
+{
+	width: 5px;
+}
+
+.ui-select
+{
+	width: 70px ;
+	padding-right: 0px;
+	right: -10px;
+}
+
+
+
+.ui-btn-text
+{
+	font-size: 9px;
+	width: 60px;
+	margin-right: -30px;
+	margin-left: 0px;
+}
+
+.ui-icon-arrow-d
+{
+	width: 17px;
+	height: 17px;
+	right: 5px;
+}
+
+.ui-btn-inner 
+{
+	padding-left: 0px;
+}
+.ui-select .ui-btn-icon-right .ui-icon 
+{
+	right: 5px;
 }
