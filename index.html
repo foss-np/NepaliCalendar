@@ -26,12 +26,11 @@
 
 <body>
 
-  <header class="row">
-      <div class="small-12 columns">
-
-        <h1> नेपाली पात्रो! </h1>
-      <div>
+  <header>
+      <h1 > नेपाली पात्रो! </h1>
   </header>
+
+<span class="small-1 columns menu-btn"> <a href="#positionWindow" data-rel="popup" data-position-to="window" class="" data-role="button" data-icon="grid" data-iconpos="notext" data-theme="b"></a>    </span>
 
 <div ng-controller="nepaliCalendarCtrl">
 
@@ -44,13 +43,12 @@
 </div>
 <!-- end of ng-controller - Nepali Calendar -->
 
-<a href="#positionWindow" data-rel="popup" data-position-to="window">
-aafasfasflakmflamflmalsdm</a>
+<!-- pop up -->
 <div data-role="popup" id="positionWindow">
     
 <div data-role="collapsible-set"  data-mini="true" data-theme="b" data-content-theme="b">
   <div data-role="collapsible" data-collapsed="false">
-  <h5>BS to AD</h5>
+  <h5>Go to</h5>
   <div data-role="fieldcontain">
   <fieldset data-role="controlgroup" data-type="horizontal">     
         <label for="select-choice-month">Month</label>
@@ -106,9 +104,40 @@ aafasfasflakmflamflmalsdm</a>
     </fieldset>
 </div>
 </div>
-  
+
+<div data-role="collapsible">
+  <h5>BS to AD</h5>
+  <div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal">     
+        <label for="select-choice-month">Month</label>
+        <select name="select-choice-month" id="select-choice-month">
+            <option>Month</option>
+            <option value="jan">January</option>
+            <!-- etc. -->
+        </select>
+    
+        <label for="select-choice-day">Day</label>
+        <select name="select-choice-day" id="select-choice-day">
+            <option>Day</option>
+            <option value="1">1</option>
+            <!-- etc. -->
+        </select>
+    
+        <label for="select-choice-year">Year</label>
+        <select name="select-choice-year" id="select-choice-year">
+            <option>Year</option>
+            <option value="2011">2011</option>
+            <!-- etc. -->
+        </select>
+        
+    </fieldset>
+
 </div>
-  
+
+</div>
+</div>
+<span class="author">@prashishh</span>
+
   
 </div>
 

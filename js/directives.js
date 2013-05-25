@@ -40,14 +40,13 @@ angular.module('Calendarapp.directives', [])
           $scope.nepali_month_year = changeTonep($scope.convmonth, String($scope.convyear)); 
 
           // html that wraps top containers - name of months and days block
-          var htmlelem =  '<div class="main-wrapper">' +
-                          '<div class="row">' +
+          var htmlelem = 
+                          '<div class="main-wrapper row">' +
                           '<div class="small-12  month-wrapper small-centered columns">' +
                           '<div class="small-5 columns top-date1">' + $scope.nepali_month_year +'</div>' +
                           '<div class="small-6 push-1 columns top-date2">' + $scope.english_month_year +'</div>' +
                         '</div>' +
-                        '</div>' +
-                        '<div class="row calendar-wrapper">' +
+                        '<div class="calendar-wrapper row">' +
                         '<ul class="day-container small-block-grid-7 small-12 small-centered columns">' +
                          ' <li class="leftborder">' +
                             '<div class="row month-container">' +
@@ -121,7 +120,7 @@ angular.module('Calendarapp.directives', [])
             for (var i = 1; i <= 6; i++) {
               for (var j = 1; j <= 7; ) {
                   if ( ft == 0 ) {
-                    htmlelem += '<div class="row">' +  
+                    htmlelem += '<div class="calendar-wrapper2 row">' +  
                               '<ul class="day-label-top small-block-grid-7 small-12 small-centered columns">';
                     for (var k = 1; k < dayOW; k++) {
                       if ( k == 1 )

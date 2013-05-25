@@ -38,6 +38,12 @@ body
 .calendar-wrapper
 {
 	margin-top: 5px;
+	padding: 0 8px 0 8px;
+}
+
+.calendar-wrapper2
+{
+	padding: 0 8px 0 8px;
 }
 
 header
@@ -71,7 +77,6 @@ header h1
 {
 	margin: 0px;
 	padding: 0px;
-	border: 1px solid #000;
 	border-top: 0px;
 	border-bottom: 0px;
 }
@@ -96,6 +101,17 @@ header h1
 	margin-right: -17px;
 }
 
+.menu-btn
+{
+	position: absolute;
+	right: 15px;
+	top: 0px;
+}
+
+.menu-btn a
+{
+	width: 23px;
+}
 
 .left-navig
 {
@@ -252,9 +268,9 @@ ul.day-label-top li .date-label
 
 #date-label 
 {
-	margin-top: -5px;
-	padding-bottom: 5px;
-	height: 20px;
+	margin-top: -15px;
+	padding-bottom: 0px;
+	height: 10px;
 	font-size: 10px;
 	color: #ff5f5f;
 	text-align: center;
@@ -310,6 +326,14 @@ select
 	-moz-box-shadow:0 10px 5px #888888;
 }
 
+.author
+{
+	margin-top: 5px;
+	font-size: 9px;
+	color: #515050;
+	text-align: center;
+}
+/*** POP UPS ****/
 #positionWindow
 {
 	width: 250px;
@@ -326,8 +350,6 @@ select
 	padding-right: 0px;
 	right: -10px;
 }
-
-
 
 .ui-btn-text
 {
@@ -348,7 +370,23 @@ select
 {
 	padding-left: 0px;
 }
+
 .ui-select .ui-btn-icon-right .ui-icon 
 {
 	right: 5px;
+}
+
+.ui-popup .ui-field-contain .ui-select
+{
+	width: 70px;
+}
+
+.ui-controlgroup .ui-controlgroup-controls
+{
+	margin: -5px;
+}
+
+.ui-btn-icon-notext .ui-btn-inner .ui-icon 
+{
+	margin: 2px 1px 1px 2px;
 }
