@@ -184,6 +184,13 @@ ul.day-label-top li:hover {
 	position: relative;
 }
 
+.resultdiv
+{
+	background: linear-gradient(rgb(111, 172, 213), rgb(73, 123, 174)) repeat scroll 0% 0% rgb(94, 135, 176);
+	text-shadow: 0px 0px 0px #e8e8e8;
+
+}
+
 #border-down
  {
  	position: absolute;
@@ -294,7 +301,7 @@ ul.day-label-top li .date-label
 
 .mark 
 {
-	background-color: #ceabab;
+	background-color: #ced9e9;
 }
 
 .c_btn

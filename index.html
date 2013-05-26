@@ -70,21 +70,22 @@
   <h5>AD to BS</h5>
   <div data-role="fieldcontain">
   <fieldset data-role="controlgroup" data-type="horizontal">     
-        <select ng-options="val for val in [1, 12] | range" ng-model="selectedNepMonth" name="nepmonth">            
+        <select ng-options="val for val in [1, 12] | range" ng-model="selectedEngMonth" >            
           <option>Month</option>
         </select>
     
-        <select ng-options="val for val in [1, 32] | range" ng-model="selectedNepDate" name="nepdate">            
+        <select ng-options="val for val in [1, 32] | range" ng-model="selectedEngDate">            
           <option>Day</option>
         </select>
     
-        <select ng-options="val for val in [2000, 2090] | range" ng-model="selectedNepYear" name="nepyear" id="select-choice-year"> 
+        <select ng-options="val for val in [1943, 2034] | range" ng-model="selectedEngYear" > 
             <option value="">Year</option>
         </select>
         
     </fieldset>
 
-   <a href="#" class="c_btn" data-role="button" data-icon="refresh" data-mini="true" data-theme="b">Convert</a> 
+   <a href="#" class="c_btn" data-role="button" data-icon="refresh" data-mini="true" data-theme="b" ng-click="ADtoBS();">Convert</a> 
+
 </div>
 </div>
 
@@ -92,21 +93,21 @@
   <h5>BS to AD</h5>
   <div data-role="fieldcontain">
   <fieldset data-role="controlgroup" data-type="horizontal">     
-        <select ng-options="val for val in [1, 12] | range" ng-model="selectedNepMonth" name="nepmonth">            
+        <select ng-options="val for val in [1, 12] | range" ng-model="selectedNepMonth">            
           <option>Month</option>
         </select>
     
-        <select ng-options="val for val in [1, 32] | range" ng-model="selectedNepDate" name="nepdate">            
+        <select ng-options="val for val in [1, 32] | range" ng-model="selectedNepDate" >            
           <option>Day</option>
         </select>
     
-        <select ng-options="val for val in [2000, 2090] | range" ng-model="selectedNepYear" name="nepyear" id="select-choice-year"> 
+        <select ng-options="val for val in [2000, 2090] | range" ng-model="selectedNepYear"> 
             <option value="">Year</option>
         </select>
         
     </fieldset>
 
-   <a href="#" class="c_btn" data-role="button" data-icon="refresh" data-mini="true" data-theme="b">Convert</a> 
+   <a href="#" class="c_btn" data-role="button" data-icon="refresh" data-mini="true" data-theme="b" ng-click="BStoAD();">Convert</a> 
 
 
 </div>

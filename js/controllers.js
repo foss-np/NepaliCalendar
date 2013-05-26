@@ -43,7 +43,6 @@ angular.module('Calendarapp.controllers',[])
   // set today's date
   $scope.findTodayDate = function() {
     if ($scope.navig_change == 0) {
-      console.log('s');
       var today = new Date();
       $scope.selyear = today.getFullYear();
       $scope.selmonth = today.getMonth()+1;
@@ -80,6 +79,38 @@ angular.module('Calendarapp.controllers',[])
     $scope.navig_button = 1;  
   }
 
+  $scope.ADtoBS = function()
+  {
+
+    // convert date to AD
+    var main = new Object();
+    main = engtonep.DateConversion($scope.selectedEngDate,$scope.selectedEngMonth,$scope.selectedEngYear);
+
+    $scope.seldate = $scope.selectedEngDate;
+    $scope.selmonth = $scope.selectedEngMonth;
+    $scope.selyear = $scope.selectedEngYear;
+    $scope.markdate = main.getDate();
+    $scope.marknepmonth = main.getMonth();
+    $scope.marknepyear = main.getYear();
+
+    $scope.navig_change = 1;
+    $scope.navig_button = 1;  
+  }
+
+  $scope.BStoAD = function()
+  {
+    // convert date to AD
+    var main = new Object();
+    main = neptoeng.DateConversion($scope.selectedNepDate,$scope.selectedNepMonth,$scope.selectedNepYear);
+    
+    $scope.seldate = main.getDate();
+    $scope.selmonth = main.getMonth();
+    $scope.selyear = main.getYear();
+    $scope.markdate = $scope.selectedNepDate;
+
+    $scope.navig_change = 1;
+    $scope.navig_button = 1;  
+  }
 
 /*
   $scope.getItemFromDb = function() {

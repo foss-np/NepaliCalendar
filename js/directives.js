@@ -25,7 +25,6 @@ angular.module('Calendarapp.directives', [])
           $scope.convyear = parseInt(main.getYear(), 10);
           $scope.convdate =  parseInt(main.getDate(), 10); 
 
-          console.log($scope.navig_change);
           $scope.setTodayDate();
 
           // total days of the month
@@ -145,7 +144,7 @@ angular.module('Calendarapp.directives', [])
                       if (j % 7 == 0 ) {
                         if( day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear) 
                           htmlelem += '<li class="holiday this">';
-                        else if ( day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear) 
+                        else if ( (day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear) || (day == $scope.markdate && $scope.convmonth ==  $scope.selectedNepMonth && $scope.convyear == $scope.selectedNepYear ) || (day == $scope.markdate && $scope.convmonth ==  $scope.marknepmonth && $scope.convyear == $scope.marknepyear )) 
                           htmlelem += '<li class="holiday mark">';
                         else
                           htmlelem += '<li class="holiday">';
@@ -164,9 +163,9 @@ angular.module('Calendarapp.directives', [])
                           htmlelem += '<li class="this leftborder">';
                         else if (day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear) 
                           htmlelem += '<li class="this">';
-                        else if (day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear) 
+                        else if ( (day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear) || (day == $scope.markdate && $scope.convmonth ==  $scope.selectedNepMonth && $scope.convyear == $scope.selectedNepYear) || (day == $scope.markdate && $scope.convmonth ==  $scope.marknepmonth && $scope.convyear == $scope.marknepyear)) 
                           htmlelem += '<li class="mark">';
-                        else if (day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear && (j == 1))
+                        else if ( (day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear && (j == 1)) || (day == $scope.markdate && $scope.convmonth ==  $scope.selectedNepMonth && $scope.convyear == $scope.selectedNepYear && (j == 1)) || (day == $scope.markdate && $scope.convmonth ==  $scope.marknepmonth && $scope.convyear == $scope.marknepyear && (j == 1)) )
                           htmlelem += '<li class="mark leftborder">';
                         else if (j == 1)
                             htmlelem += '<li class="leftborder">';
