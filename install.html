@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>Install नेपाली पात्रो!</title>
+<script>
+var manifest_url = "manifest.webapp";
+var request = navigator.mozApps.install(manifest_url);
+	request.onsuccess = function() {
+	alert('Done');
+}
+request.onerror = function(){
+	alert(this.error.name);
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

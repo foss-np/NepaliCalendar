@@ -66,50 +66,56 @@ angular.module('Calendarapp.controllers',[])
 
   $scope.goTo = function()
   {
-    // convert date to AD
-    var main = new Object();
-    main = neptoeng.DateConversion($scope.selectedGoDate,$scope.selectedGoMonth,$scope.selectedGoYear);
-    
-    $scope.seldate = main.getDate();
-    $scope.selmonth = main.getMonth();
-    $scope.selyear = main.getYear();
-    $scope.markdate = $scope.selectedGoDate;
+    if (typeof $scope.selectedGoDate != 'undefined' && typeof $scope.selectedGoMonth  != 'undefined' && typeof $scope.selectedGoYear  != 'undefined') {
+        // convert date to AD
+        var main = new Object();
+        main = neptoeng.DateConversion($scope.selectedGoDate,$scope.selectedGoMonth,$scope.selectedGoYear);
+        
+        $scope.seldate = main.getDate();
+        $scope.selmonth = main.getMonth();
+        $scope.selyear = main.getYear();
+        $scope.markdate = $scope.selectedGoDate;
 
-    $scope.navig_change = 1;
-    $scope.navig_button = 1;  
+        $scope.navig_change = 1;
+        $scope.navig_button = 1;
+      }  
   }
 
   $scope.ADtoBS = function()
   {
 
-    // convert date to AD
-    var main = new Object();
-    main = engtonep.DateConversion($scope.selectedEngDate,$scope.selectedEngMonth,$scope.selectedEngYear);
+    if (typeof $scope.selectedEngDate != 'undefined' && typeof $scope.selectedEngMonth  != 'undefined' && typeof $scope.selectedEngYear  != 'undefined') {
+        // convert date to AD
+        var main = new Object();
+        main = engtonep.DateConversion($scope.selectedEngDate,$scope.selectedEngMonth,$scope.selectedEngYear);
 
-    $scope.seldate = $scope.selectedEngDate;
-    $scope.selmonth = $scope.selectedEngMonth;
-    $scope.selyear = $scope.selectedEngYear;
-    $scope.markdate = main.getDate();
-    $scope.marknepmonth = main.getMonth();
-    $scope.marknepyear = main.getYear();
+        $scope.seldate = $scope.selectedEngDate;
+        $scope.selmonth = $scope.selectedEngMonth;
+        $scope.selyear = $scope.selectedEngYear;
+        $scope.markdate = main.getDate();
+        $scope.marknepmonth = main.getMonth();
+        $scope.marknepyear = main.getYear();
 
-    $scope.navig_change = 1;
-    $scope.navig_button = 1;  
+        $scope.navig_change = 1;
+        $scope.navig_button = 1;  
+      }
   }
 
   $scope.BStoAD = function()
   {
-    // convert date to AD
-    var main = new Object();
-    main = neptoeng.DateConversion($scope.selectedNepDate,$scope.selectedNepMonth,$scope.selectedNepYear);
-    
-    $scope.seldate = main.getDate();
-    $scope.selmonth = main.getMonth();
-    $scope.selyear = main.getYear();
-    $scope.markdate = $scope.selectedNepDate;
+    if (typeof $scope.selectedNepDate != 'undefined' && typeof $scope.selectedNepMonth  != 'undefined' && typeof $scope.selectedNepYear  != 'undefined') {
+        // convert date to AD
+        var main = new Object();
+        main = neptoeng.DateConversion($scope.selectedNepDate,$scope.selectedNepMonth,$scope.selectedNepYear);
+        
+        $scope.seldate = main.getDate();
+        $scope.selmonth = main.getMonth();
+        $scope.selyear = main.getYear();
+        $scope.markdate = $scope.selectedNepDate;
 
-    $scope.navig_change = 1;
-    $scope.navig_button = 1;  
+        $scope.navig_change = 1;
+        $scope.navig_button = 1;  
+      }
   }
 
 /*
