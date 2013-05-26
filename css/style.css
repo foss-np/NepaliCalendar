@@ -292,6 +292,28 @@ ul.day-label-top li .date-label
 	background-color: #ced9e9;
 }
 
+.c_btn
+{
+	width: 80px;
+	margin-top: 15px;
+	float: right;
+}
+
+.c_btn .ui-btn-inner
+{
+	width: 80px;
+}
+
+.c_btn .ui-btn-inner .ui-btn-text
+{
+	margin-left:-40px;
+	width: 80px;
+}
+
+.ui-collapsible-inset .ui-collapsible-content
+{
+	height: 100px;
+}
 
 /** select form **/
 select 
