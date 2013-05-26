@@ -24,24 +24,22 @@
 
 </head>
 
-<body>
+<body ng-controller="nepaliCalendarCtrl">
 
   <header>
       <h1 > नेपाली पात्रो! </h1>
   </header>
 
-<span class="small-1 columns menu-btn"> <a href="#positionWindow" data-rel="popup" data-position-to="window" class="" data-role="button" data-icon="grid" data-iconpos="notext" data-theme="b"></a>    </span>
 
-<div ng-controller="nepaliCalendarCtrl">
+
+<div >
+
+<span class="small-1 columns menu-btn"> <a href="#positionWindow" data-rel="popup" data-position-to="window" class="" data-role="button" data-icon="grid" data-iconpos="notext" data-theme="b"></a>    </span>
 
   <div class="left-navig" ng-click="decMonth();"></div>
   <div class="right-navig" ng-click="incMonth();"></div>
   <!-- calendar -->
 <nep-calendar></nep-calendar>
-
-
-</div>
-<!-- end of ng-controller - Nepali Calendar -->
 
 <!-- pop up -->
 <div data-role="popup" id="positionWindow">
@@ -51,20 +49,20 @@
   <h5>Go to</h5>
   <div data-role="fieldcontain">
   <fieldset data-role="controlgroup" data-type="horizontal">     
-        <select ng-options="val for val in [1, 12] | range" ng-model="selectedNepMonth" name="nepmonth">            
+        <select ng-options="val for val in [1, 12] | range" ng-model="selectedGoMonth" name="nepmonth">            
           <option>Month</option>
         </select>
     
-        <select ng-options="val for val in [1, 32] | range" ng-model="selectedNepDate" name="nepdate">            
+        <select ng-options="val for val in [1, 32] | range" ng-model="selectedGoDate" name="nepdate">            
           <option>Day</option>
         </select>
     
-        <select ng-options="val for val in [2000, 2090] | range" ng-model="selectedNepYear" name="nepyear" id="select-choice-year"> 
+        <select ng-options="val for val in [2000, 2090] | range" ng-model="selectedGoYear" name="nepyear" id="select-choice-year"> 
             <option value="">Year</option>
         </select>
             </fieldset>
 
-         <a href="#" class="c_btn" data-role="button" data-icon="refresh" data-mini="true" data-theme="b">Go</a> 
+         <a href="#" class="c_btn" data-role="button" data-icon="refresh" data-mini="true" data-theme="b" ng-click="goTo();">Go</a> 
 </div>
   </div>
   
@@ -119,5 +117,10 @@
 
   
 </div>
+
+</div>
+<!-- end of ng-controller - Nepali Calendar -->
+
+
 
  </html>

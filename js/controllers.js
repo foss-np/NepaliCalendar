@@ -3,10 +3,12 @@
 angular.module('Calendarapp.controllers',[])
   .controller('nepaliCalendarCtrl', function($scope, $element) {
   
+  /*
   var cal_setup = localStorage.getItem('cal_setup');
 
   if (cal_setup == null || cal_setup == 0)  
     initialSetup();
+  */
 
   // initial button status     
   $scope.navig_button = 0;
@@ -41,11 +43,13 @@ angular.module('Calendarapp.controllers',[])
   // set today's date
   $scope.findTodayDate = function() {
     if ($scope.navig_change == 0) {
+      console.log('s');
       var today = new Date();
       $scope.selyear = today.getFullYear();
       $scope.selmonth = today.getMonth()+1;
       $scope.seldate = today.getDate();
     }
+
   }
 
   $scope.setTodayDate = function() {
@@ -55,6 +59,27 @@ angular.module('Calendarapp.controllers',[])
       $scope.todayyear = $scope.convyear;
     }
   }
+
+  $scope.getLabel =  function(day, convmonth, convyear)
+  {
+    return localStorage.getItem(String(n(day)) + String(n($scope.convmonth)) + String($scope.convyear));   
+  }
+
+  $scope.goTo = function()
+  {
+    // convert date to AD
+    var main = new Object();
+    main = neptoeng.DateConversion($scope.selectedGoDate,$scope.selectedGoMonth,$scope.selectedGoYear);
+    
+    $scope.seldate = main.getDate();
+    $scope.selmonth = main.getMonth();
+    $scope.selyear = main.getYear();
+    $scope.markdate = $scope.selectedGoDate;
+
+    $scope.navig_change = 1;
+    $scope.navig_button = 1;  
+  }
+
 
 /*
   $scope.getItemFromDb = function() {

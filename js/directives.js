@@ -7,7 +7,7 @@ angular.module('Calendarapp.directives', [])
       replace: true,
       link: function($scope, $element, $attrs)
       {
-        findEvent();
+        
         // check if navig button is pressed
         $scope.$watch('navig_button', function(newval, oldval) { 
 
@@ -25,6 +25,7 @@ angular.module('Calendarapp.directives', [])
           $scope.convyear = parseInt(main.getYear(), 10);
           $scope.convdate =  parseInt(main.getDate(), 10); 
 
+          console.log($scope.navig_change);
           $scope.setTodayDate();
 
           // total days of the month
@@ -144,6 +145,8 @@ angular.module('Calendarapp.directives', [])
                       if (j % 7 == 0 ) {
                         if( day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear) 
                           htmlelem += '<li class="holiday this">';
+                        else if ( day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear) 
+                          htmlelem += '<li class="holiday mark">';
                         else
                           htmlelem += '<li class="holiday">';
 
@@ -152,7 +155,7 @@ angular.module('Calendarapp.directives', [])
                                       '<div class="row">' +
                                       '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
                                       '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">'+ localStorage.getItem(String(n(day)) + String(n($scope.convmonth)) + String($scope.convyear)) +'</span></div>' +
+                                      '<span class="small-12 columns" id="date-label">'+ /* localStorage.getItem(String(n(day)) + String(n($scope.convmonth)) + String($scope.convyear)) + */ '</span></div>' +
                                       '<div id="border-down"></div>' +
                                       '</li>';
                         day++;
@@ -161,6 +164,10 @@ angular.module('Calendarapp.directives', [])
                           htmlelem += '<li class="this leftborder">';
                         else if (day == $scope.todaydate && $scope.convmonth ==  $scope.todaymonth && $scope.convyear == $scope.todayyear) 
                           htmlelem += '<li class="this">';
+                        else if (day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear) 
+                          htmlelem += '<li class="mark">';
+                        else if (day == $scope.markdate && $scope.convmonth ==  $scope.selectedGoMonth && $scope.convyear == $scope.selectedGoYear && (j == 1))
+                          htmlelem += '<li class="mark leftborder">';
                         else if (j == 1)
                             htmlelem += '<li class="leftborder">';
                         else
@@ -169,9 +176,10 @@ angular.module('Calendarapp.directives', [])
                             htmlelem += '<div class="row">' +
                                       '<span class="nep-font small-12 columns">' + nepDigit[day] + '</span></div>' +
                                       '<div class="row">' +
-                                      '<span class="eng-font small-12 columns">' + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate() + '</span></div>' +
+                                      '<span class="eng-font small-12 columns">'  + neptoeng.DateConversion(day, $scope.convmonth, $scope.convyear).getDate()  + '</span></div>' +
                                       '<div class="row">' +
-                                      '<span class="small-12 columns" id="date-label">' + localStorage.getItem(String(n(day)) + String(n($scope.convmonth)) + String($scope.convyear)) +'</span></div>' +
+                                      '<span class="small-12 columns" id="date-label">' + /* $scope.getLabel(day, $scope.convmonth, $scope.convyear)
+                                         + */ '</span></div>' +
                                       '<div id="border-down"></div>' +
                                       '</li>';
                         day++;
@@ -185,12 +193,13 @@ angular.module('Calendarapp.directives', [])
               htmlelem += '<div class="footer">'+
                             'Copyright blah blah blah'+
                             '</div>';
-                                          htmlelem += '</div>';
 
               $element.html(htmlelem);   
         
           // set navig_button to default - to trigger when this is pressed again
+          $scope.navig_change = 1;
           $scope.navig_button = 0;
+
         }, true);
       }
     }

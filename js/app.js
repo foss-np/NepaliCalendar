@@ -31,10 +31,8 @@ function initialSetup() {
 
   $.getScript("js/init_data.js")
   .done(function() {
-    console.log('s')
   })
   .fail(function() {
-    console.log('fail');
   });
 
 }
