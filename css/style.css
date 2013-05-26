@@ -292,6 +292,11 @@ ul.day-label-top li .date-label
 	background-color: #ced9e9;
 }
 
+.mark 
+{
+	background-color: #ceabab;
+}
+
 .c_btn
 {
 	width: 80px;
