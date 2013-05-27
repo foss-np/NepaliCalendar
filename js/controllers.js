@@ -16,12 +16,12 @@ angular.module('Calendarapp.controllers',[])
 
   // left button click
   $scope.decMonth = function() { 
-    if ( $scope.selmonth == 12 ) {
-      $scope.selmonth = 1;
-      $scope.selyear += 1;
-    } else 
+    if ( $scope.selmonth == 1 ) {
+      $scope.selmonth = 12;
+      $scope.selyear -= 1;
+    } else {
       $scope.selmonth -= 1;    
-
+    }
     // trigger change to calendar
     $scope.navig_change = 1;
     $scope.navig_button = 1;
