@@ -9,7 +9,7 @@ A Nepali Calendar built using angular.js, foundation.css and jquery mobile. The 
 
 The features of this application are:
 - Calendar.
-- Date Conversion from AD to BC and vice-versa.
+- Date Conversion from AD to BS and vice-versa.
 - Calendar automatically generated of a specific date, month, year.
 
 Technical Specs:
