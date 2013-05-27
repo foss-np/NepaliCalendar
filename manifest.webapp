@@ -8,7 +8,8 @@
 		"url": "http://prashishrajbhandari.com.np" 
 	}, 
 	"icons": { 
-		"128": "NepaliCalendar/img/icon128.png"
+		"60": "/nepcal/img/icon-60.png",
+		"128": "/nepcal/img/icon-128.png"
 	}, 
 	"default_locale": "en" 
 }
