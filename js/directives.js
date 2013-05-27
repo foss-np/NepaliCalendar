@@ -189,9 +189,6 @@ angular.module('Calendarapp.directives', [])
                 }
               }
               htmlelem += '</ul>';
-              htmlelem += '<div class="footer">'+
-                            'Copyright blah blah blah'+
-                            '</div>';
 
               $element.html(htmlelem);   
         
